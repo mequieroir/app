@@ -44,16 +44,16 @@ npm start
 
 ### Run UnitTests
 
-Simply open a Terminal window and run `npm run tests` to start all your [karma][karma] unit tests.
+Simply open a Terminal window and run `npm run tests` to start all your [Karma][karma] unit tests.
 
 ## Continuous Integration
 
 ### Travis CI
 
-[travis][travis] is a continuous integration service, which can monitor GitHub for new commits
+[Travis-CI][travis] is a continuous integration service, which can monitor GitHub for new commits
 to your repository and execute scripts such as building the app or running tests. The angular-seed
 project contains a Travis configuration file, `.travis.yml`, which will cause Travis to run your
-tests when you push to GitHub. [link text itself][link text itself]
+tests when you push to GitHub. 
 
 ## Deploy
 
@@ -61,7 +61,7 @@ tests when you push to GitHub. [link text itself][link text itself]
 
 ## Documentacion
 
-La documentacion se encuentra aqui [link](https://github.com/mequieroir/me-quiero-ir-api/tree/master/docs)
+La documentacion se encuentra aqui [link](https://github.com/mequieroir/me-quiero-ir-api/blob/master/docs/doc.md)
 
 [git]: http://git-scm.com/
 [bower]: http://bower.io
