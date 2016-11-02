@@ -1,0 +1,18 @@
+language: node_js
+
+node_js:
+  - "0.10"
+
+sudo: required
+
+notifications:
+  email:
+    recipients:
+      - rojasagustin90@gmail.com
+      - recheconea@gmail.com
+    on_success: change
+    on_failure: always
+
+install:
+  - npm install
+

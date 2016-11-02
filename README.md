@@ -1,36 +1,20 @@
 # mequiero.ir
 
-## Status
-
-<!-- [![Build Status](https://travis-ci.com/agrojas/momentous-api.svg?token=EbKmqbdiPyUppeAsrpJo&branch=master)](https://travis-ci.com/agrojas/momentous-api) -->
-
-## Getting Started
-
-To get you started you can simply clone the momentous-api repository and install the dependencies:
-
-### Use API
-
-<!-- You can use API in [https://momentous-api.herokuapp.com/menus](https://momentous-api.herokuapp.com/menus)  -->
-
-
-
-
 ### Prerequisites
 
-You will need **git** to clone me-quiero-ir repository. You can get git from
+You will need **git** to clone me-quiero-ir-api repository. You can get git from
 [http://git-scm.com/](http://git-scm.com/).
 
-We also use a number of node.js tools to initialize and test angular-material. You must have node.js and
+We also use a number of node.js tools to initialize and test me-quiero-ir-api. You must have node.js and
 its package manager [npm][npm] installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
 
-### Clone me-quiero-ir
+### Clone me-quiero-ir-api
 
-Clone me-quiero-ir repository using using [git][git]:
+Clone me-quiero-ir-api repository using using [git][git]:
 
 ```
-git clone https://github.com/recheconea/tp-arquitectura.git
-cd tp-arquitectura
-cd me-quiero-ir
+git clone https://github.com/mequieroir/me-quiero-ir-api.git
+cd me-quiero-ir-api
 ```
 
 
@@ -91,11 +75,10 @@ La documentacion se encuentra en el siguiente documento
 
 ## Links
 
-
-[git]: http://git-scm.com/
-[bower]: http://bower.io
-[npm]: https://www.npmjs.org/
-[node]: http://nodejs.org
-[jasmine]: http://jasmine.github.io
-[karma]: http://karma-runner.github.io
-[travis]: https://travis-ci.org/
+ - [git]: http://git-scm.com/
+ - [bower]: http://bower.io/
+ - [npm]: https://www.npmjs.org/
+ - [node]: http://nodejs.org/
+ - [jasmine]: http://jasmine.github.io/
+ - [karma]: http://karma-runner.github.io/
+ - [travis]: https://travis-ci.org/
