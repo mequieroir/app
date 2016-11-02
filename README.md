@@ -2,14 +2,14 @@
 
 ### Prerequisites
 
-You will need git to clone **me-quiero-ir-api** repository. You can get git from [git].
+You will need git to clone **me-quiero-ir-api** repository. You can get git from [git][git].
 
 We also use a number of node.js tools to initialize and test me-quiero-ir-api. You must have node.js and
-its package manager [npm] installed.  You can get them from [node].
+its package manager [npm][npm] installed.  You can get them from [node][node].
 
 ### Clone me-quiero-ir-api
 
-Clone me-quiero-ir-api repository using using [git]:
+Clone me-quiero-ir-api repository using using [git][git]:
 
 ```
 git clone https://github.com/mequieroir/me-quiero-ir-api.git
@@ -44,16 +44,16 @@ npm start
 
 ### Run UnitTests
 
-Simply open a Terminal window and run `npm run tests` to start all your Karma unit tests.
+Simply open a Terminal window and run `npm run tests` to start all your [karma][karma] unit tests.
 
 ## Continuous Integration
 
 ### Travis CI
 
-[travis] is a continuous integration service, which can monitor GitHub for new commits
+[travis][travis] is a continuous integration service, which can monitor GitHub for new commits
 to your repository and execute scripts such as building the app or running tests. The angular-seed
 project contains a Travis configuration file, `.travis.yml`, which will cause Travis to run your
-tests when you push to GitHub.
+tests when you push to GitHub. [link text itself][link text itself]
 
 
 
@@ -67,7 +67,8 @@ git push heroku master
 heroku open
 ``` -->
 ## Documentacion
-La documentacion se encuentra en el siguiente documento
+
+La documentacion se encuentra aqui [link](https://github.com/mequieroir/me-quiero-ir-api/tree/master/docs)
 
 
 
@@ -80,4 +81,4 @@ La documentacion se encuentra en el siguiente documento
 [karma]: http://karma-runner.github.io/ "Karma"
 [travis]: https://travis-ci.org/ "Travis"
 [heroku]: https://www.heroku.com/ "Heroku"
-
+[link text itself]: http://www.reddit.com
