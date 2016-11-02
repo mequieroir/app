@@ -59,11 +59,6 @@ tests when you push to GitHub. [link text itself][link text itself]
 
 ### Heroku
 
-<!-- ```
-heroku create
-git push heroku master
-heroku open
-``` -->
 ## Documentacion
 
 La documentacion se encuentra aqui [link](https://github.com/mequieroir/me-quiero-ir-api/tree/master/docs)
