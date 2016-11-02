@@ -3,10 +3,10 @@
 ### Prerequisites
 
 You will need **git** to clone me-quiero-ir-api repository. You can get git from
-[http://git-scm.com/](http://git-scm.com/).
+[git][git].
 
 We also use a number of node.js tools to initialize and test me-quiero-ir-api. You must have node.js and
-its package manager [npm][npm] installed.  You can get them from [http://nodejs.org/](http://nodejs.org/).
+its package manager [npm][npm] installed.  You can get them from [node][node].
 
 ### Clone me-quiero-ir-api
 
@@ -75,10 +75,17 @@ La documentacion se encuentra en el siguiente documento
 
 ## Links
 
- - [git]: http://git-scm.com/
- - [bower]: http://bower.io/
- - [npm]: https://www.npmjs.org/
- - [node]: http://nodejs.org/
- - [jasmine]: http://jasmine.github.io/
- - [karma]: http://karma-runner.github.io/
- - [travis]: https://travis-ci.org/
+[git]: http://git-scm.com/
+
+[bower]: http://bower.io/
+
+[npm]: https://www.npmjs.org/
+
+[node]: http://nodejs.org/
+
+[jasmine]: http://jasmine.github.io/
+
+[karma]: http://karma-runner.github.io/
+
+[travis]: https://travis-ci.org/
+
