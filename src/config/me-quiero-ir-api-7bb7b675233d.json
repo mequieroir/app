@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "me-quiero-ir-api",
+  "private_key_id": "7bb7b675233d686a92e679b8d5a62bfc11d33733",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDIh2TbM6kuPfex\ny2hb5s89haJ/pychOBwD7jKmalWQ4ysEkt1mi0RBefTlBK0Qi05EZ5il9HpZa55r\netqUZLlHqe7WmZp2a9XMQPUl5Cr5sAxu5LhJgzS6Udyd+rUZKMQfKQNak6wSzUCp\nWDybf+/m1mpBDH4JWQr7PHDKcScOi6eC3BwhlWITz+htgxPEGBevqESGBaCV4nph\nW/zhrs7o917X9JrV7Zuj5+BP0P0q2r4+QC+Gv23xxEjF6N16KJn7DsAn6K9ZqU4R\nEPwsmRO8IMcyre81WhUedzdpKQLtjegfNQbt1s0XYXdBAP4RhkZFVSyTJx379IvL\nHfePuOqJAgMBAAECggEAcIOnj2a5Mn0KkfPzpj0nYvmsZ7u+NOFqtrncKYvYXudX\np8VP/M1/is2HH0k0YegIDlGiUNuQGsRLqzrPkhvB6ffrTvX4uSFgYK7B3nTbuCWT\nlFU5IeZAm5p7Exksq+U3xdQZUaUyE4qfEWW0+/sY/IiqLb14qn4Pr1AGaVB7/ahX\nyGoEovzgC6mAfIaQ0W50c3oTHBQZltoq/qBPTCQbOALcO6vMW42RN469NJxqOCFK\nP7k6i9RE1y2PalylmYTKPC+wdgfHoBWgLKWESUVhDPKHlzYpVr88JkQ5fADaWawi\nAw6m0EsPs7/Sg930M4FkRqxu8pkMWPbvZmpm1FQI0QKBgQDujeIhTqs3uuVKjPe1\nLorlLW9M9risJvJVsPTZKLTE9hnBLhMVJ7dVfS/RevCUdHkggoYrYC9BxZNf7qBe\nP1AR5nFG3Zj+LRWysgFMeng2gvKpfvBpfiNTWcjcs2ldt+O2lzHXkRxbq9grGOlg\nlvLfUQ6lYVtpL3EzGuJywZexXwKBgQDXMZ2E/rxdBo+xvveaO6plX0jSbKLhQP3j\nE0scnk2c7QDXSjKOvELwbfPeWp2jsGzn0+32oyj+ZULhfWRJ8WVbYPyfmJ28iWkj\nVXEzcyBRovmQgRoOE9R2tZzzlwRM42oefUlf/awoTSiDL1tsPBNOZHecj2P0Y1bC\nqm1+91LlFwKBgQDFYsrwClrrsw5UYE36Mbelp7GHekIV1+f+dXwzT1Y7/vISgSAz\nCfjNmNb/Ov1jqPgsqTOBIoYXovatkxJIyZRkK0wheexErGNex6EBefiMCk/lZW5h\nq4hpSEpGK4GMlUKq63HHT3+qbodgKa25SU1O8I/w0ZzEbQf6ZE1o7LyqewKBgC92\nsw6dfQBrrRAAVe5/0IKRdKds7LQQOK94Fu4WAHpnT/MsW2BeJ8mOBub5R6HODQdJ\nGEh5DlamEQ1ZMeCZTMjN6IpvCAOIr1bqxpAZiXxYHQGBaDTIrOkN/7M+kOVAl6xn\n5+IzOmCdPB1LObfyvDNjN3qhqeNCceV337TMak07AoGBANokHWDYVBkO6uLrJFxW\n7ozp4agADb2/JZ5hYJ75fiNnn5pIErl3JrnlMIfnAFxS12E5MxGzzfy9mML3ROMA\ntuP13vRhxl6iqol+xoKU25JVFUGvm/vmV5zmykMLPo6NSdeDsy9GsEKq6F2wKL/I\nT7IgBaadUbb2smmVaRyBbQBi\n-----END PRIVATE KEY-----\n",
+  "client_email": "agrojas@me-quiero-ir-api.iam.gserviceaccount.com",
+  "client_id": "100426591072405323690",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/agrojas%40me-quiero-ir-api.iam.gserviceaccount.com"
+}
