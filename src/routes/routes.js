@@ -20,6 +20,7 @@ router.get('/users', function(req, res, next) {
 	res.json(response.data);
 });
 
+/*POST user*/
 router.post('/users', function(req, res) {
 	var response = {
 		status: 500,
