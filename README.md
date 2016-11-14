@@ -45,7 +45,7 @@ npm start
 ### Run UnitTests
 
 Simply open a Terminal window and run `npm run tests` to start all your [Karma][karma] unit tests.
-
+"test": "karma start ./test/karma.conf.js --reporters progress,junit,coverage"
 ## Continuous Integration
 
 ### Travis CI

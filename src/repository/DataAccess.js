@@ -24,6 +24,28 @@ DataAccess.prototype.pushData = function(path,data) {
 	return postId;
 };
 
+DataAccess.prototype.getData = function(path) {
+	return new Promise(
+	    function(resolve, reject) {      
+    	 	callFirebase(path).then(
+    	 	 	function(val) {
+    	 	 		resolve(val);
+    	 	 	}
+    	 	);
+    });
+};
+
+DataAccess.prototype.getDataFiltered = function(path,filter,value) {
+	return new Promise(
+	    function(resolve, reject) {      
+    	 	callFirebase(path,filter,value).then(
+    	 	 	function(val) {
+    	 	 		resolve(val);
+    	 	 	}
+    	 	);
+    });
+};
+
 function callFirebase(path) {
 	return new Promise(
 		function(resolve, reject) {       
@@ -35,15 +57,15 @@ function callFirebase(path) {
     });
 }
 
-DataAccess.prototype.getData = function(path) {
+function callFirebaseFiltered(path,field,value) {
 	return new Promise(
-	    function(resolve, reject) {      
-    	 	callFirebase(path).then(
-    	 	 	function(val) {
-    	 	 		resolve(val);
-    	 	 	}
-    	 	);
+		function(resolve, reject) {       
+			var ref = firebase.database().ref(path);
+			ref.orderByChild(field).equalTo(value.once("value", function(snapshot) {
+			  	resolve(snapshot.val())
+			});
+    	 	 
     });
-};
+}
 
 module.exports = DataAccess;

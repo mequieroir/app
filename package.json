@@ -5,8 +5,7 @@
   "description": "mequiero.ir",
   "repository": "https://github.com/mequieroir/me-quiero-ir-api",
   "scripts": {
-    "start": "node ./bin/www",
-    "test": "karma start ./test/karma.conf.js --reporters progress,junit,coverage"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "body-parser": "~1.15.1",

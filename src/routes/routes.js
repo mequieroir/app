@@ -27,6 +27,21 @@ router.get('/user', function(req, res) {
 /* GET user. */
 router.get('/user/:id', function(req, res) {
     var id = req.params.id;
+    console.log('userId',id);
+    var data = userService.getUser(id).then(
+		function(val){
+			response.status = 200;
+			response.data = val;
+			res.status(response.status);
+			res.json(response.data);
+		},
+		function(err){
+			console.log('reject');
+			response.status = 404;
+			res.status(response.status);
+			res.json(response.data);
+		}
+	);	
 });
 
 /*POST user*/
