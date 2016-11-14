@@ -1,6 +1,7 @@
 "use strict";
 var firebase = require("firebase-admin");
 var serviceAccount = require("../config/firebase-credentials.json");
+var Promise = require('promise');
 
 firebase.initializeApp({
   credential: firebase.credential.cert(serviceAccount),
@@ -11,30 +12,40 @@ function DataAccess() {
 }
 
 
-DataAccess.prototype.saveData = function(path,data) {
+DataAccess.prototype.setData = function(path,data) {
   	var ref = firebase.database().ref(path);
-  	try {
     // the synchronous code that we want to catch thrown errors on
-		ref.set(data);
-	} catch (err) {
-	    // handle the error safely
-	    console.log(err)
-	    return false;
-	}
-	return true;
+	ref.set(data);
 };
 
-DataAccess.prototype.getData = function(path,data) {
-	// var data = [
-	// 	{"userId":"1","userName":"user1","telephone":"111","address":"a111"},
-	// 	{"userId":"2","userName":"user2","telephone":"222","address":"a222"},
-	// 	{"userId":"3","userName":"user3","telephone":"333","address":"a333"},
-	// ];
+DataAccess.prototype.pushData = function(path,data) {
   	var ref = firebase.database().ref(path);
-	ref.once("value", function(data) {
-	  // do some stuff once
-	});
-	return data;
+    // the synchronous code that we want to catch thrown errors on
+	var newPostRef = ref.push();
+	var postId = newPostRef.key;
+	return postId;
+};
+
+function callFirebase(path) {
+	return new Promise(
+		function(resolve, reject) {       
+			var ref = firebase.database().ref(path);
+			ref.once("value", function(snapshot) {
+			  	resolve(snapshot.val())
+			});
+    	 	 
+    });
+}
+
+DataAccess.prototype.getData = function(path) {
+	return new Promise(
+	    function(resolve, reject) {      
+    	 	callFirebase(path).then(
+    	 	 	function(val) {
+    	 	 		resolve(val);
+    	 	 	}
+    	 	);
+    });
 };
 
 module.exports = DataAccess;

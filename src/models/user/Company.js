@@ -1,11 +1,10 @@
 "use strict";
 
-var User = require('User');
+var User = require('./User');
 
 Company.prototype = new User();
 
 function Company(userName, companyName, email,  telephone, address) {
-	this.userId = userId || ''; 
 	this.userName = userName || ''; 
 	this.telephone = telephone || '';
 	this.address = address || '';

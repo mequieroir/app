@@ -5,7 +5,6 @@ var User = require('./User');
 Person.prototype = new User();
 
 function Person(userName, firstName, lastName, age, email,  telephone, address) {
-	this.userId = userId || ''; 
 	this.userName = userName || ''; 
 	this.telephone = telephone || '';
 	this.address = address || '';

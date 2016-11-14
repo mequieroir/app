@@ -1,30 +1,61 @@
 "use strict";
 
 var User = require('./User');
+var UserFactory = require('./UserFactory');
+var UserValidator = require('./UserValidator');
 var DataAccess = require('../../repository/DataAccess');
 
 
 function UserService() {
-	this.dataAccess = new DataAccess();
-	this.userPath = "users";
 }
 
 UserService.prototype.getUsers = function() {
-	var data = this.dataAccess.getData();
+	var data = this.dataAccess.getData("users");
 	return data;
 };
 
-UserService.prototype.getUser = function(userId) {
-	var user = {};
-	return user;
+UserService.prototype.getUser = function(userName) {
+	return new Promise(
+		function(resolve, reject) {   
+			var path = "users/" + data.userName;
+			var dataAccess = new DataAccess();
+			dataAccess.getData(path).then(
+			    function(val) {
+					resolve(val)
+				}
+			);
+	
+	});
 };
 
 UserService.prototype.createUser = function(data) {
-	var user = {};
-	if (!this.dataAccess.saveData(this.userPath,data)) {
-		status = new User() 
-	}
-	return user;
+	return new Promise(
+		function(resolve, reject) {   
+			var userValidator = new UserValidator();
+			userValidator.checkUserExist(data).then(
+				function(val) {
+					if (val != null){
+						reject(val);
+					}
+					var userFactory = new UserFactory();
+					var dataAccess = new DataAccess();	
+					var user = userFactory.createUser(data);
+					var userId = dataAccess.pushData("users",user);
+					user.setUserId(userId);
+					var userDb = {};
+					userDb[userId] = user;
+					dataAccess.setData("users",userDb);
+
+					var userListDb = {};
+					userListDb[user.getUserName()] = user;
+					dataAccess.setData("usersList",userListDb);
+					resolve(user);
+					
+				}
+			);
+		}
+	);
+
 };
 
 UserService.prototype.updateUser = function(data) {

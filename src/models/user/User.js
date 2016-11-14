@@ -1,10 +1,10 @@
 "use strict";
 
 function User(userName,email,telephone, address) {
-	this.userId = ''; 
 	this.userName = userName || ''; 
 	this.telephone = telephone || '';
 	this.address = address || '';
+	this.userId = 0;
 }
 
 User.prototype.getUserId = function() {
@@ -41,6 +41,10 @@ User.prototype.setTelephone = function(telephone) {
 
 User.prototype.setAddress = function(address) {
 	this.address = address;
+};
+
+User.prototype.setUserId = function(userId) {
+	this.userId = userId;
 };
 
 module.exports = User;
