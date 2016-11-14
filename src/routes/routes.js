@@ -11,19 +11,26 @@ var response = {
 	} 
 
 /* GET users listing. */
-router.get('/users', function(req, res, next) {
+router.get('/user', function(req, res) {
 	  
-	var data = userService.getUsers();	
-	if(data != null) {
-		response.status = 200;
-		response.data = data;
-	}
-	res.status(response.status);
-	res.json(response.data);
+	var data = userService.getUsers().then(
+		function(val){
+			response.status = 200;
+			response.data = val;
+			res.status(response.status);
+			res.json(response.data);
+		}
+	);	
+	
+});
+
+/* GET user. */
+router.get('/user/:id', function(req, res) {
+    var id = req.params.id;
 });
 
 /*POST user*/
-router.post('/users', function(req, res) {
+router.post('/user', function(req, res) {
 	var data = req.body;
 	userService.createUser(data).then(
 		function(val){

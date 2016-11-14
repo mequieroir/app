@@ -14,10 +14,10 @@ UserService.prototype.getUsers = function() {
 	return data;
 };
 
-UserService.prototype.getUser = function(userName) {
+UserService.prototype.getUser = function(userId) {
 	return new Promise(
 		function(resolve, reject) {   
-			var path = "users/" + data.userName;
+			var path = "users/" + userId;
 			var dataAccess = new DataAccess();
 			dataAccess.getData(path).then(
 			    function(val) {
@@ -42,13 +42,8 @@ UserService.prototype.createUser = function(data) {
 					var user = userFactory.createUser(data);
 					var userId = dataAccess.pushData("users",user);
 					user.setUserId(userId);
-					var userDb = {};
-					userDb[userId] = user;
-					dataAccess.setData("users",userDb);
-
-					var userListDb = {};
-					userListDb[user.getUserName()] = user;
-					dataAccess.setData("usersList",userListDb);
+					dataAccess.setData("users/"+userId,user);
+					dataAccess.setData("usersList/"+user.getUserName(),user.getUserName());
 					resolve(user);
 					
 				}

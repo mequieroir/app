@@ -1,7 +1,7 @@
 "use strict";
 var firebase = require("firebase-admin");
 var serviceAccount = require("../config/firebase-credentials.json");
-var Promise = require('promise');
+
 
 firebase.initializeApp({
   credential: firebase.credential.cert(serviceAccount),
@@ -14,13 +14,11 @@ function DataAccess() {
 
 DataAccess.prototype.setData = function(path,data) {
   	var ref = firebase.database().ref(path);
-    // the synchronous code that we want to catch thrown errors on
 	ref.set(data);
 };
 
 DataAccess.prototype.pushData = function(path,data) {
   	var ref = firebase.database().ref(path);
-    // the synchronous code that we want to catch thrown errors on
 	var newPostRef = ref.push();
 	var postId = newPostRef.key;
 	return postId;
