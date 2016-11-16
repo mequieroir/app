@@ -63,9 +63,9 @@ function callFirebaseFiltered(path,field,value) {
 			var ref = firebase.database().ref(path);
 			ref.orderByChild(field).equalTo(value.once("value", function(snapshot) {
 			  	resolve(snapshot.val())
-			});
+			})
     	 	 
-    });
+    )});
 }
 
 module.exports = DataAccess;
