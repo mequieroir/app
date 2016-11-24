@@ -8,7 +8,7 @@ var DataAccess = require('../../repository/DataAccess');
 function JobOfferService() {
 }
 
-JobOfferService.prototype.getJobOffers() {
+JobOfferService.prototype.getJobOffers = function() {
 	var data = this.dataAccess.getData("jobOffers");
 	return data;
 }
@@ -32,7 +32,8 @@ JobOfferService.prototype.getJobOffer = function(jobOfferId) {
 	});
 };
 
-JobOfferService.prototype.createJobOffer(data) {
+JobOfferService.prototype.createJobOffer = function(data) {
+	console.log("entre a createjoboffers");
 	return new Promise(
 		function(resolve, reject) {   
 			var jobOfferValidator = new JobOfferValidator();
