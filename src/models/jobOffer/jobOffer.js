@@ -3,6 +3,7 @@
 var jobTypes = ["F", "P", "T"]
 
 function JobOffer() {
+	this.id = "";
 	this.jobOfferId = 0;
 	this.title = "";
 	this.creationDate = new Date();
@@ -13,6 +14,10 @@ function JobOffer() {
 	this.benefits = [];
 	this.jobType = "F";
 	this.expirationDate = "";
+}
+
+JobOffer.prototype.getId = function() {
+	return this.id;
 }
 
 JobOffer.prototype.getJobOfferId = function() {
@@ -53,6 +58,10 @@ JobOffer.prototype.getJobType = function() {
 
 JobOffer.prototype.getExpirationDate = function() {
 	return this.expirationDate;
+}
+
+JobOffer.prototype.setId = function(id) {
+	this.id = id;
 }
 
 JobOffer.prototype.setJobOfferId = function(jobOfferId) {

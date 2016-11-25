@@ -6,9 +6,12 @@ function JobOfferValidator() {
 	
 }
 
-JobOfferValidator.checkFields = function(jobOffer) {
-	if (jobOffer.expirationDate == NULL) return false;
-	if (jobOffer.title == NULL) return false;
+JobOfferValidator.prototype.checkFields = function(jobOffer) {
+	console.log(1)
+	if (!jobOffer.expirationDate) return false;
+	console.log(1)
+	if (!jobOffer.title) return false;
+	console.log(1)
 	return true;
 }
 

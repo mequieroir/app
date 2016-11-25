@@ -41,14 +41,20 @@ JobSearchService.prototype.createJobSearch = function(data) {
 				reject(null);
 				return;
 			}
-			var jobSearchBuilder = new JobSearchBuilder();
-			var dataAccess = new DataAccess();	
-			var jobSearch = jobSearchBuilder.createJobSearch(data);
-			var jobSearchId = dataAccess.pushData("jobSearch",jobSearch);
-			jobSearch.setJobSearchId(jobSearchId);
-			dataAccess.setData("jobSearch/" + jobSearchId, jobSearch);
-			//dataAccess.setData("jobOffersList/" + user.getUserName(),user.getUserName());
-			resolve(jobSearch);
+			var dataAccess = new DataAccess();
+			dataAccess.getRowCount("jobSearch/").then(function(count) {
+				var jobSearchBuilder = new JobSearchBuilder();
+				var id = count + 1;
+				var jobSearch = jobSearchBuilder.createJobSearch(data);
+				jobSearch.setId(jobSearch.title + "-" + id);
+				var jobSearchId = dataAccess.pushData("jobSearch",jobSearch);
+				jobSearch.setJobSearchId(jobSearchId);
+				dataAccess.setData("jobSearch/" + jobSearchId, jobSearch);
+				//dataAccess.setData("jobOffersList/" + user.getUserName(),user.getUserName());
+				resolve(jobSearch);
+			}, function(val) {
+				reject(val);
+			})	
 		}
 	);
 }

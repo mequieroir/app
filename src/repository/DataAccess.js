@@ -46,6 +46,17 @@ DataAccess.prototype.getDataFiltered = function(path,filter,value) {
     });
 };
 
+DataAccess.prototype.getRowCount = function(path) {
+	return new Promise(
+		function(resolve, reject) {       
+			var ref = firebase.database().ref(path);
+			ref.once("value", function(snapshot) {
+			  	resolve(snapshot.numChildren())
+			});
+    	 	 
+    });
+}
+
 function callFirebase(path) {
 	return new Promise(
 		function(resolve, reject) {       
