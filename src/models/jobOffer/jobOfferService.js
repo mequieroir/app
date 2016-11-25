@@ -33,26 +33,22 @@ JobOfferService.prototype.getJobOffer = function(jobOfferId) {
 };
 
 JobOfferService.prototype.createJobOffer = function(data) {
-	console.log("entre a createjoboffers");
 	return new Promise(
 		function(resolve, reject) {   
 			var jobOfferValidator = new JobOfferValidator();
-			jobOfferValidator.checkJobOfferExists(data).then(
-				function(val) {
-					if (val != null){
-						reject(val);
-					}
-					var jobOfferBuilder = new JobOfferBuilder();
-					var dataAccess = new DataAccess();	
-					var jobOffer = jobOfferBuilder.createJobOffer(data);
-					var jobOfferId = dataAccess.pushData("jobOffer",jobOffer);
-					jobOffer.setjobOfferId(jobOfferId);
-					dataAccess.setData("jobOffer/" + jobOfferId, jobOffer);
-					//dataAccess.setData("jobOffersList/" + user.getUserName(),user.getUserName());
-					resolve(jobOffer);
-					
-				}
-			);
+			if (!jobOfferValidator.checkFields(data)) {
+				reject(data);
+				return;
+			}
+			
+			var jobOfferBuilder = new JobOfferBuilder();
+			var dataAccess = new DataAccess();	
+			var jobOffer = jobOfferBuilder.createJobOffer(data);
+			var jobOfferId = dataAccess.pushData("jobOffer",jobOffer);
+			jobOffer.setJobOfferId(jobOfferId);
+			dataAccess.setData("jobOffer/" + jobOfferId, jobOffer);
+			//dataAccess.setData("jobOffersList/" + user.getUserName(),user.getUserName());
+			resolve(jobOffer);
 		}
 	);
 }

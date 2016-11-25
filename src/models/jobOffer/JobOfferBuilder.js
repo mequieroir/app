@@ -6,9 +6,8 @@ var JobOffer = require('./JobOffer');
 function JobOfferBuilder() {
 }
 
-JobOfferBuilder.prototype.makeJobOffer = function(data) {
+JobOfferBuilder.prototype.createJobOffer = function(data) {
 	var jobOffer = new JobOffer();
-
 	data.jobOfferId = 0;
 	jobOffer.setTitle(data.title || "");
 	jobOffer.setCreationDate(data.creationDate || "");

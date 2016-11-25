@@ -6,17 +6,17 @@ var JobSearch = require('./JobSearch');
 function JobSearchBuilder() {
 }
 
-JobSearchBuilder.prototype.makeJobSearch = function(data) {
+JobSearchBuilder.prototype.createJobSearch = function(data) {
 	var jobSearch = new JobSearch();
 
 	data.jobSearchId = 0;
-	jobOffer.setTitle(data.title || "");
-	jobOffer.setCreationDate(data.creationDate || "");
-	jobOffer.setDescription(data.description || "");
-	jobOffer.setSkills(data.skills || []);
-	jobOffer.setRequirements(data.requirements || []);
-	jobOffer.setGrossSalary(data.grossSalary || 0);
-	jobOffer.setJobType(data.jobType || "F");
+	jobSearch.setTitle(data.title || "");
+	jobSearch.setCreationDate(data.creationDate || "");
+	jobSearch.setDescription(data.description || "");
+	jobSearch.setSkills(data.skills || []);
+	jobSearch.setRequirements(data.requirements || []);
+	jobSearch.setGrossSalary(data.grossSalary || 0);
+	jobSearch.setJobType(data.jobType || "F");
 
 	return jobSearch;
 };

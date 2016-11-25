@@ -11,6 +11,7 @@ function JobSearch() {
 	this.requirements = [];
 	this.grossSalary = 0;
 	this.jobType = "F";
+	this.active = true;
 }
 
 JobSearch.prototype.getJobSearchId = function() {
@@ -45,6 +46,10 @@ JobSearch.prototype.getJobType = function() {
 	return this.jobType;
 }
 
+JobSearch.prototype.getActice = function() {
+	return this.active;
+}
+
 JobSearch.prototype.setJobSearchId = function(jobSearchId) {
 	this.jobSearchId = jobSearchId;
 }
@@ -68,7 +73,7 @@ JobSearch.prototype.setSkills = function(skills) {
 }
 
 JobSearch.prototype.setRequirements = function(requirements) {
-	if (required.requirements === Array) {
+	if (requirements.constructor === Array) {
 		this.requirements = requirements;
 	}
 }
@@ -77,11 +82,14 @@ JobSearch.prototype.setGrossSalary = function(grossSalary) {
 	this.grossSalary = grossSalary;
 }
 
-
 JobSearch.prototype.setJobType = function(jobType) {
-	if (indexOf(jobType, jobTypes) >= 0) {
+	if (jobTypes.indexOf(jobType) >= 0) {
 		this.jobType = jobType;
 	}
+}
+
+JobSearch.prototype.setActive = function(active) {
+	this.active = active;
 }
 
 module.exports = JobSearch;

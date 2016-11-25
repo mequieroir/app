@@ -8,8 +8,9 @@ var DataAccess = require('../../repository/DataAccess');
 function JobSearchService() {
 }
 
-JobSearchService.prototype.getJobSearchs() {
+JobSearchService.prototype.getJobSearchs = function() {
 	var data = this.dataAccess.getData("jobSearchs");
+	console.log("iamhere getjobsearch")
 	return data;
 }
 
@@ -32,26 +33,22 @@ JobSearchService.prototype.getJobSearch = function(jobSearchId) {
 	});
 };
 
-JobSearchService.prototype.createJobSearch(data) {
+JobSearchService.prototype.createJobSearch = function(data) {
 	return new Promise(
 		function(resolve, reject) {   
 			var jobSearchValidator = new JobSearchValidator();
-			jobSearchValidator.checkJobSearchExists(data).then(
-				function(val) {
-					if (val != null){
-						reject(val);
-					}
-					var jobSearchBuilder = new JobSearchBuilder();
-					var dataAccess = new DataAccess();	
-					var jobOffer = jobSearchBuilder.createJobSearch(data);
-					var jobOfferId = dataAccess.pushData("jobOffer",jobOffer);
-					jobOffer.setjobSearchId(jobSearchId);
-					dataAccess.setData("jobSearch/" + jobSearchId, jobOffer);
-					//dataAccess.setData("jobOffersList/" + user.getUserName(),user.getUserName());
-					resolve(jobOffer);
-					
-				}
-			);
+			if (!jobSearchValidator.checkFields(data)) {
+				reject(null);
+				return;
+			}
+			var jobSearchBuilder = new JobSearchBuilder();
+			var dataAccess = new DataAccess();	
+			var jobSearch = jobSearchBuilder.createJobSearch(data);
+			var jobSearchId = dataAccess.pushData("jobSearch",jobSearch);
+			jobSearch.setJobSearchId(jobSearchId);
+			dataAccess.setData("jobSearch/" + jobSearchId, jobSearch);
+			//dataAccess.setData("jobOffersList/" + user.getUserName(),user.getUserName());
+			resolve(jobSearch);
 		}
 	);
 }

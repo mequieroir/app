@@ -12,6 +12,7 @@ function JobOffer() {
 	this.grossSalary = 0;
 	this.benefits = [];
 	this.jobType = "F";
+	this.expirationDate = "";
 }
 
 JobOffer.prototype.getJobOfferId = function() {
@@ -50,6 +51,10 @@ JobOffer.prototype.getJobType = function() {
 	return this.jobType;
 }
 
+JobOffer.prototype.getExpirationDate = function() {
+	return this.expirationDate;
+}
+
 JobOffer.prototype.setJobOfferId = function(jobOfferId) {
 	this.jobOfferId = jobOfferId;
 }
@@ -73,7 +78,7 @@ JobOffer.prototype.setRequired = function(required) {
 }
 
 JobOffer.prototype.setDesired = function(desired) {
-	if (required.desired === Array) {
+	if (desired.constructor === Array) {
 		this.desired = desired;
 	}
 }
@@ -83,15 +88,19 @@ JobOffer.prototype.setGrossSalary = function(grossSalary) {
 }
 
 JobOffer.prototype.setBenefits = function(benefits) {
-	if (required.benefits === Array) {
+	if (benefits.constructor === Array) {
 		this.benefits = benefits;
 	}
 }
 
 JobOffer.prototype.setJobType = function(jobType) {
-	if (indexOf(jobType, jobTypes) >= 0) {
+	if (jobTypes.indexOf(jobType) >= 0) {
 		this.jobType = jobType;
 	}
+}
+
+JobOffer.prototype.setExpirationDate = function(expirationDate) {
+	this.expirationDate = expirationDate;
 }
 
 module.exports = JobOffer;

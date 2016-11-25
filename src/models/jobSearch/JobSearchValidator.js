@@ -6,20 +6,10 @@ function JobSearchValidator() {
 	
 }
 
-JobSearchValidator.prototype.checkJobSearchExists = function(data) {
-	return new Promise(
-		function(resolve, reject) {   
-			var path = "JobSearchList/" + data.JobSearchId;
-			console.log('checkJobSearchExists ',path);
-			var dataAccess = new DataAccess();
-			dataAccess.getData(path).then(
-			    function(val) {
-			    	console.log('checkJobSearchExists ',val);
-					resolve(val);
-				}
-			);
-	
-	});
+JobSearchValidator.prototype.checkFields = function(data) {
+	if (!data.title) return false;
+
+	return true;
 };
 
 module.exports = JobSearchValidator;
