@@ -38,7 +38,7 @@ DataAccess.prototype.getData = function(path) {
 DataAccess.prototype.getDataFiltered = function(path,filter,value) {
 	return new Promise(
 	    function(resolve, reject) {      
-    	 	callFirebase(path,filter,value).then(
+    	 	callFirebaseFiltered(path,filter,value).then(
     	 	 	function(val) {
     	 	 		resolve(val);
     	 	 	}
@@ -70,13 +70,15 @@ function callFirebase(path) {
 
 function callFirebaseFiltered(path,field,value) {
 	return new Promise(
-		function(resolve, reject) {       
+		function(resolve, reject) {
+		console.log("1") 
 			var ref = firebase.database().ref(path);
-			ref.orderByChild(field).equalTo(value.once("value", function(snapshot) {
+			ref.orderByChild(field).equalTo(value).once("value", function(snapshot) {
+		console.log("3") 
 			  	resolve(snapshot.val())
 			})
     	 	 
-    )});
+    });
 }
 
 module.exports = DataAccess;

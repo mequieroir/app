@@ -9,17 +9,18 @@ function JobOfferService() {
 }
 
 JobOfferService.prototype.getJobOffers = function() {
-	var data = this.dataAccess.getData("jobOffers");
+	var data = this.dataAccess.getData("jobOffer/");
 	return data;
 }
 
-JobOfferService.prototype.getJobOffer = function(jobOfferId) {
+JobOfferService.prototype.getJobOffer = function(id) {
 	return new Promise(
 		function(resolve, reject) {   
-			var path = "jobOffer/" + jobOfferId;
+			var path = "jobOffer/";
 			console.log('path',path);
 			var dataAccess = new DataAccess();
-			dataAccess.getData(path).then(
+			// dataAccess.getData(path).then(
+			dataAccess.getDataFiltered(path, "id", id).then(
 			    function(val) {
 			    	console.log('val',val);
 			    	if (val == null){

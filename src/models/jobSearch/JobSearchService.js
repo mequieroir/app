@@ -9,18 +9,18 @@ function JobSearchService() {
 }
 
 JobSearchService.prototype.getJobSearchs = function() {
-	var data = this.dataAccess.getData("jobSearchs");
-	console.log("iamhere getjobsearch")
+	console.log("i am at jobSearch")
+	var data = this.dataAccess.getData("jobSearch/");
 	return data;
 }
 
-JobSearchService.prototype.getJobSearch = function(jobSearchId) {
+JobSearchService.prototype.getJobSearch = function(id) {
 	return new Promise(
 		function(resolve, reject) {   
-			var path = "jobSearch/" + jobSearchId;
+			var path = "jobSearch/";
 			console.log('path',path);
 			var dataAccess = new DataAccess();
-			dataAccess.getData(path).then(
+			dataAccess.getDataFiltered(path, "id", id).then(
 			    function(val) {
 			    	console.log('val',val);
 			    	if (val == null){
