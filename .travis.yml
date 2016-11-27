@@ -17,5 +17,5 @@ install:
   - npm install
 
 script:
-  - npm start
+  - node app.js &
   - npm test
