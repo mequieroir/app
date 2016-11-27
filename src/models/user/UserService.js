@@ -10,8 +10,22 @@ function UserService() {
 }
 
 UserService.prototype.getUsers = function() {
-	var data = this.dataAccess.getData("users");
-	return data;
+	console.log('getUsers');
+	return new Promise(
+		function(resolve, reject) {   
+			var dataAccess = new DataAccess();
+			dataAccess.getData("users").then(
+			    function(val) {
+			    	console.log('val',val);
+			    	if (val == null){
+						reject(val);
+					}
+					resolve(val)
+				}
+			);
+	
+	});
+
 };
 
 UserService.prototype.getUser = function(userId) {

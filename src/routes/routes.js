@@ -19,8 +19,10 @@ var response = {
 /* GET users listing. */
 router.get('/user', function(req, res) {
 	  
+	console.log('user');
 	var data = userService.getUsers().then(
 		function(val){
+			console.log('val', val);
 			response.status = 200;
 			response.data = val;
 			res.status(response.status);
