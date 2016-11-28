@@ -10,13 +10,11 @@ function UserService() {
 }
 
 UserService.prototype.getUsers = function() {
-	console.log('getUsers');
 	return new Promise(
 		function(resolve, reject) {   
 			var dataAccess = new DataAccess();
 			dataAccess.getData("users").then(
 			    function(val) {
-			    	console.log('val',val);
 			    	if (val == null){
 						reject(val);
 					}

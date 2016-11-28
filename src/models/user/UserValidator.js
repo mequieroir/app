@@ -10,7 +10,7 @@ UserValidator.prototype.checkUserExist = function(data) {
 	return new Promise(
 		function(resolve, reject) {   
 			var path = "usersList/" + data.userName;
-			console.log('checkUserExist ',path);
+			// console.log('checkUserExist ',path);
 			var dataAccess = new DataAccess();
 			dataAccess.getData(path).then(
 			    function(val) {
