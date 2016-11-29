@@ -26,7 +26,6 @@ UserService.prototype.getUsers = function() {
 };
 
 UserService.prototype.getUser = function(userId) {
-	console.log('getUser');
 	return new Promise(
 		function(resolve, reject) {   
 			var path = "users/" + userId;
@@ -46,10 +45,12 @@ UserService.prototype.getUser = function(userId) {
 };
 
 UserService.prototype.createUser = function(data) {
-	console.log('createUser');
 	return new Promise(
 		function(resolve, reject) {   
 			var userValidator = new UserValidator();
+			if (!userValidator.isValidFields(data)){
+				reject();
+			}
 			userValidator.checkUserExist(data).then(
 				function(val) {
 					if (val){
@@ -76,38 +77,58 @@ UserService.prototype.createUser = function(data) {
 };
 
 UserService.prototype.updateUser = function(userId,data) {
-	var status = {};
-	return status;
+				console.log('updateUser',data);
+	return new Promise(
+		function(resolve, reject) {
+			var userService = new UserService();
+			var userValidator = new UserValidator();
+			if (!userValidator.isValidFields(data)){
+				console.log('Invalid Fields');
+				reject();
+				return;
+			}
+			userService.getUser(userId).then(
+				function(user) {
+					console.log('data',data);
+					var dataAccess = new DataAccess();
+					var path = "users";
+					dataAccess.updateData(path,userId,data).then(
+					    function(val) {
+							resolve(user)
+						}
+					);
+				},
+				function(){
+					var args = [userId,data];
+					reject(args);
+					return;
+				}
+			);
+		}
+	);
 };
 
 UserService.prototype.postulateJobOffer = function(userId,jobId) {
-	console.log('postulateJobOffer',userId,jobId);
 	return new Promise(
 		function(resolve, reject) {
-			console.log('postulateJobOffer',userId);   
 			var userService = new UserService();
 			userService.getUser(userId).then(
 				function(user) {
-					console.log('getUser',user);	
-					console.log('getUser',jobId);	
 					var jobOfferService = new JobOfferService();
 					jobOfferService.getJobOffer(jobId).then(
 						function(jobOffer){
-							console.log('jobOffer',jobId);
 							/*TODO: IMplementar esto*/
 							// jobOffer.setUser(user);
 							resolve(jobOffer)
 						},
 						function(){
-							var args = [jobId,data]
-							reject(args);
+							reject(jobId);
 							return;
 						}
 					);
 				},
 				function(){
-					var args = [user,data];
-					reject(args);
+					reject(userId);
 					return;
 				}
 			);

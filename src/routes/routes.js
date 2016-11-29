@@ -18,8 +18,6 @@ var response = {
 
 /* GET users listing. */
 router.get('/user', function(req, res) {
-	  
-	console.log('user');
 	var data = userService.getUsers().then(
 		function(val){
 			console.log('val', val);
@@ -35,7 +33,6 @@ router.get('/user', function(req, res) {
 /* GET user. */
 router.get('/user/:id', function(req, res) {
     var id = req.params.id;
-    console.log('userId',id);
     var data = userService.getUser(id).then(
 		function(user){
 			response.status = 200;
@@ -56,6 +53,29 @@ router.get('/user/:id', function(req, res) {
 router.post('/user', function(req, res) {
 	var data = req.body;
 	userService.createUser(data).then(
+		function(val){
+			console.log('response');
+			response.status = 200;
+			response.data = val;
+			res.status(response.status);
+			res.json(response.data);
+		},
+		function(err){
+			console.log('reject');
+			response.status = 409;
+			res.status(response.status);
+			res.json(response.data);
+		}
+
+	);
+ 	
+});
+
+/*POST user*/
+router.put('/user/:userId', function(req, res) {
+	var data = req.body;
+	var userId = req.params.userId;
+	userService.updateUser(userId,data).then(
 		function(val){
 			console.log('response');
 			response.status = 200;

@@ -57,6 +57,16 @@ DataAccess.prototype.getRowCount = function(path) {
     });
 }
 
+DataAccess.prototype.updateData = function(path,id,data) {
+	return new Promise(
+		function(resolve, reject) {       
+			var ref = firebase.database().ref(path);
+			var node = ref.child(id);
+			node.update(data);
+    	 	resolve();
+    });
+}
+
 function callFirebase(path) {
 	return new Promise(
 		function(resolve, reject) {
