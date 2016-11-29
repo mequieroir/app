@@ -10,6 +10,7 @@ JobSearchBuilder.prototype.createJobSearch = function(data) {
 	var jobSearch = new JobSearch();
 
 	data.jobSearchId = 0;
+	jobSearch.setUserId(data.userId);
 	jobSearch.setTitle(data.title || "");
 	jobSearch.setCreationDate(data.creationDate || "");
 	jobSearch.setDescription(data.description || "");

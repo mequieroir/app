@@ -7,6 +7,7 @@ function JobSearchValidator() {
 }
 
 JobSearchValidator.prototype.checkFields = function(data) {
+	if (!data.userId) return false;
 	if (!data.title) return false;
 
 	return true;

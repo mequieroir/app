@@ -3,7 +3,8 @@
 var jobTypes = ["F", "P", "T"]
 
 function JobSearch() {
-	this.id = ""
+	this.id = "";
+	this.userId = 0;
 	this.jobSearchId = 0;
 	this.title = "";
 	this.creationDate = new Date();
@@ -17,6 +18,10 @@ function JobSearch() {
 
 JobSearch.prototype.getId = function() {
 	return this.id;
+}
+
+JobSearch.prototype.getUserId = function() {
+	return this.userId;
 }
 
 JobSearch.prototype.getJobSearchId = function() {
@@ -57,6 +62,10 @@ JobSearch.prototype.getActice = function() {
 
 JobSearch.prototype.setId = function(id) {
 	this.id = id;
+}
+
+JobSearch.prototype.setUserId = function(userId) {
+	this.userId = userId;
 }
 
 JobSearch.prototype.setJobSearchId = function(jobSearchId) {

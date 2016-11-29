@@ -9,6 +9,7 @@ function JobOfferBuilder() {
 JobOfferBuilder.prototype.createJobOffer = function(data) {
 	var jobOffer = new JobOffer();
 	data.jobOfferId = 0;
+	jobOffer.setCompanyId(data.companyId);
 	jobOffer.setTitle(data.title || "");
 	jobOffer.setCreationDate(data.creationDate || "");
 	jobOffer.setDescription(data.description || "");
