@@ -15,7 +15,8 @@ UserBuilder.prototype.makePerson = function(data) {
 	var age = data.age;
 	var email = data.email;
 	var telephone = data.telephone;
-	var address= data.address;
+	var address = data.address;
+
 	var person = new Person(userName, firstName, lastName, age, email,  telephone, address)
 	return person;
 };

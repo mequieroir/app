@@ -11,7 +11,7 @@ function UserFactory() {
 }
 
 UserFactory.prototype.createUser = function(data) {
-	var user = {};
+	var user = null;
 	var type = data.type;
 	if (type == "person") {
 		user = this.userBuilder.makePerson(data);

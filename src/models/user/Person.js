@@ -11,8 +11,28 @@ function Person(userName, firstName, lastName, age, email,  telephone, address) 
 	this.firstName = firstName || ''; 
 	this.lastName = lastName || ''; 
 	this.age = age || '';
+	this.email = email || '';
+	this.type = 'person';
 	this.jobSearch = [];
 }
+
+
+Person.prototype.getData = function() {
+	var data = {
+		telephone: this.telephone,
+		address: this.address,
+		userId: this.userId,
+		userName: this.userName,
+		telephone: this.telephone,
+		address: this.address,
+		firstName: this.firstName,
+		lastName: this.lastName,
+		age: this.age,
+		email: this.email,
+		type: this.type
+	}
+	return data;
+};
 
 Person.prototype.getFirstName = function() {
 	return this.firstName;
@@ -45,6 +65,11 @@ Person.prototype.setAge = function(age) {
 Person.prototype.setJobSearch = function(jobSearch) {
 	this.jobSearch = jobSearch;
 };
+
+Person.prototype.setJobOffer = function(jobOffert) {
+	this.jobSearch = jobSearch;
+};
+
 
 module.exports = Person;
 

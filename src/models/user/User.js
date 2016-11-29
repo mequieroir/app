@@ -4,8 +4,10 @@ function User(userName,email,telephone, address) {
 	this.userName = userName || ''; 
 	this.telephone = telephone || '';
 	this.address = address || '';
-	this.userId = 0;
+	this.email = email || '';
+	this.userId = "";
 }
+
 
 User.prototype.getUserId = function() {
 	return this.userId;

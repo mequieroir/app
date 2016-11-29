@@ -59,22 +59,19 @@ DataAccess.prototype.getRowCount = function(path) {
 
 function callFirebase(path) {
 	return new Promise(
-		function(resolve, reject) {       
+		function(resolve, reject) {
 			var ref = firebase.database().ref(path);
 			ref.once("value", function(snapshot) {
 			  	resolve(snapshot.val())
 			});
-    	 	 
     });
 }
 
 function callFirebaseFiltered(path,field,value) {
 	return new Promise(
 		function(resolve, reject) {
-		console.log("1") 
 			var ref = firebase.database().ref(path);
 			ref.orderByChild(field).equalTo(value).once("value", function(snapshot) {
-		console.log("3") 
 			  	resolve(snapshot.val())
 			})
     	 	 

@@ -37,9 +37,9 @@ router.get('/user/:id', function(req, res) {
     var id = req.params.id;
     console.log('userId',id);
     var data = userService.getUser(id).then(
-		function(val){
+		function(user){
 			response.status = 200;
-			response.data = val;
+			response.data = user.getData();
 			res.status(response.status);
 			res.json(response.data);
 		},
@@ -72,6 +72,73 @@ router.post('/user', function(req, res) {
 
 	);
  	
+});
+
+/*GET user search jobOffer*/
+router.get('/user/:userId/jobOffer', function(req, res) {
+	var data = req.body;
+    var userId = req.params.userId;
+	userService.searchJobOffer(data).then(
+		function(val){
+			console.log('response');
+			response.status = 200;
+			response.data = val;
+			res.status(response.status);
+			res.json(response.data);
+		},
+		function(err){
+			console.log('reject');
+			response.status = 409;
+			res.status(response.status);
+			res.json(response.data);
+		}
+
+	);
+ 	
+});
+
+/*GET user jobSearch*/
+router.get('/user/:userId/jobSearch', function(req, res) {
+	var data = req.body;
+    var userId = req.params.userId;
+	userService.searchJobSearch(data).then(
+		function(val){
+			console.log('response');
+			response.status = 200;
+			response.data = val;
+			res.status(response.status);
+			res.json(response.data);
+		},
+		function(err){
+			console.log('reject');
+			response.status = 409;
+			res.status(response.status);
+			res.json(response.data);
+		}
+
+	);
+ 	
+});
+
+/*PUT user jobOffer*/
+router.put('/user/:userId/jobOffer/:jobId', function(req, res) {
+    var userId = req.params.userId;
+    var jobId = req.params.jobId;
+	userService.postulateJobOffer(userId,jobId).then(
+		function(val){
+			console.log('response');
+			response.status = 200;
+			response.data = val;
+			res.status(response.status);
+			res.json(response.data);
+		},
+		function(err){
+			console.log('reject');
+			response.status = 409;
+			res.status(response.status);
+			res.json(response.data);
+		}
+	);
 });
 
 /* GET jobOffers listing. */
