@@ -26,7 +26,7 @@ JobOfferService.prototype.getJobOffers = function() {
 JobOfferService.prototype.getJobOffer = function(id) {
 	return new Promise(
 		function(resolve, reject) {   
-			var path = "jobOffer/";
+			var path = "jobOffer/" + id;
 			console.log('path',path);
 			var dataAccess = new DataAccess();
 			// dataAccess.getData(path).then(

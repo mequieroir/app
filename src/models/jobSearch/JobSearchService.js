@@ -26,7 +26,7 @@ JobSearchService.prototype.getJobSearchs = function() {
 JobSearchService.prototype.getJobSearch = function(id) {
 	return new Promise(
 		function(resolve, reject) {   
-			var path = "jobSearch/";
+			var path = "jobSearch/" + id;
 			console.log('path',path);
 			var dataAccess = new DataAccess();
 			dataAccess.getData(path).then(
