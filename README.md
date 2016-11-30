@@ -1,4 +1,4 @@
-# Install
+# MQI
 
 ## Install the Firebase CLI
 
