@@ -161,6 +161,27 @@ router.put('/user/:userId/jobOffer/:jobId', function(req, res) {
 	);
 });
 
+/*PUT user skill*/
+router.put('/user/:userId/skill', function(req, res) {
+    var userId = req.params.userId;
+    var data = req.body;
+	userService.addSkill(userId,data).then(
+		function(val){
+			console.log('response');
+			response.status = 200;
+			response.data = val;
+			res.status(response.status);
+			res.json(response.data);
+		},
+		function(err){
+			console.log('reject');
+			response.status = 409;
+			res.status(response.status);
+			res.json(response.data);
+		}
+	);
+});
+
 /* GET jobOffers listing. */
 router.get('/jobOffer', function(req, res) {
 	  

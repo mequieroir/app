@@ -78,7 +78,6 @@ UserService.prototype.createUser = function(data) {
 };
 
 UserService.prototype.updateUser = function(userId,data) {
-				console.log('updateUser',data);
 	return new Promise(
 		function(resolve, reject) {
 			var userService = new UserService();
@@ -137,4 +136,35 @@ UserService.prototype.postulateJobOffer = function(userId,jobId) {
 	);
 };
 
+UserService.prototype.addSkill = function(userId,data) {
+	return new Promise(
+		function(resolve, reject) {
+			var userService = new UserService();
+			if (data.skill == undefined || data.skill == null){
+				console.log('Invalid Fields');
+				reject();
+				return;
+			}
+			userService.getUser(userId).then(
+				function(user) {
+					console.log('data',data.skill);
+					var dataAccess = new DataAccess();
+					var path = "users";
+					user.addSkill(skill);
+					var userUpdated = user.getData();
+					dataAccess.updateData(path,userId,userUpdated).then(
+					    function(val) {
+							resolve(userUpdated)
+						}
+					);
+				},
+				function(){
+					var args = [userId,data];
+					reject(args);
+					return;
+				}
+			);
+		}
+	);
+};
 module.exports = UserService;

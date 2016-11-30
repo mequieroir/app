@@ -14,6 +14,7 @@ function Person(userName, firstName, lastName, age, email,  telephone, address) 
 	this.email = email || '';
 	this.type = 'person';
 	this.jobSearch = [];
+	this.skills = {};
 }
 
 
@@ -29,7 +30,8 @@ Person.prototype.getData = function() {
 		lastName: this.lastName,
 		age: this.age,
 		email: this.email,
-		type: this.type
+		type: this.type,
+		skills: this.skills
 	}
 	return data;
 };
@@ -70,6 +72,10 @@ Person.prototype.setJobOffer = function(jobOffert) {
 	this.jobSearch = jobSearch;
 };
 
+
+Person.prototype.setSkill = function(skill) {
+	this.skills[skill.name] = skill.description
+};
 
 module.exports = Person;
 
