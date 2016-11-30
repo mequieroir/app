@@ -217,6 +217,29 @@ router.post('/jobOffer', function(req, res) {
  	
 });
 
+/*PUT jobOffer*/
+router.put('/jobOffer/:id', function(req, res) {
+	var data = req.body;
+	var id = req.params.id;
+	jobOfferService.updateJobOffer(id, data).then(
+		function(val){
+			console.log('response');
+			response.status = 200;
+			response.data = val;
+			res.status(response.status);
+			res.json(response.data);
+		},
+		function(err){
+			console.log('reject');
+			response.status = 409;
+			res.status(response.status);
+			res.json(response.data);
+		}
+
+	);
+ 	
+});
+
 /* GET jobSearch listing. */
 router.get('/jobSearch', function(req, res) {
 	  
@@ -256,6 +279,29 @@ router.post('/jobSearch', function(req, res) {
 	var data = req.body;
 	console.log(data)
 	jobSearchService.createJobSearch(data).then(
+		function(val){
+			console.log('response');
+			response.status = 200;
+			response.data = val;
+			res.status(response.status);
+			res.json(response.data);
+		},
+		function(err){
+			console.log('reject');
+			response.status = 409;
+			res.status(response.status);
+			res.json(response.data);
+		}
+
+	);
+ 	
+});
+
+/*PUT jobSearch*/
+router.put('/jobSearch/:id', function(req, res) {
+	var data = req.body;
+	var id = req.params.id;
+	jobSearchService.updateJobSearch(id, data).then(
 		function(val){
 			console.log('response');
 			response.status = 200;

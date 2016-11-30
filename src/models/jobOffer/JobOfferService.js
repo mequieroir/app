@@ -30,7 +30,7 @@ JobOfferService.prototype.getJobOffer = function(id) {
 			console.log('path',path);
 			var dataAccess = new DataAccess();
 			// dataAccess.getData(path).then(
-			dataAccess.getDataFiltered(path, "id", id).then(
+			dataAccess.getData(path).then(
 			    function(val) {
 			    	console.log('val',val);
 			    	if (val == null){
@@ -74,9 +74,32 @@ JobOfferService.prototype.createJobOffer = function(data) {
 	);
 }
 
-JobOfferService.prototype.updateJobOffer = function(data) {
-	var status = {};
-	return status;
+JobOfferService.prototype.updateJobOffer = function(jobOfferId, data) {
+	return new Promise(function(resolve, reject) {
+		var jobOfferValidator = new JobOfferValidator();
+		if (!jobOfferValidator.checkFields(data)) {
+			console.log("update jobOffer: invalid fields");
+			reject();
+			return;
+		}
+		var jobOfferService = new JobOfferService();
+		jobOfferService.getJobOffer(jobOfferId).then(function(jobOffer) {
+			var dataAccess = new DataAccess();
+			var path = "jobOffer";
+			dataAccess.updateData(path, jobOfferId, data).then(
+				function(val) {
+					console.log(val)
+					resolve(jobOffer);
+				},
+				function(val) {
+					reject("couldNotUpdate")
+				}
+			);
+		}, function() {
+			reject();
+			return;
+		});
+	});
 };
 
 module.exports = JobOfferService;

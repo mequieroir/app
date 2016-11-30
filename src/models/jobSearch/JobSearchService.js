@@ -29,7 +29,7 @@ JobSearchService.prototype.getJobSearch = function(id) {
 			var path = "jobSearch/";
 			console.log('path',path);
 			var dataAccess = new DataAccess();
-			dataAccess.getDataFiltered(path, "id", id).then(
+			dataAccess.getData(path).then(
 			    function(val) {
 			    	console.log('val',val);
 			    	if (val == null){
@@ -72,9 +72,33 @@ JobSearchService.prototype.createJobSearch = function(data) {
 	);
 }
 
-JobSearchService.prototype.updateJobSearch = function(data) {
-	var status = {};
-	return status;
+JobSearchService.prototype.updateJobSearch = function(jobSearchId, data) {
+	console.log(data)
+	return new Promise(function(resolve, reject) {
+		var jobSearchValidator = new JobSearchValidator();
+		if (!jobSearchValidator.checkFields(data)) {
+			console.log("update jobSearch: invalid fields");
+			reject();
+			return;
+		}
+		var jobSearchService = new JobSearchService();
+		jobSearchService.getJobSearch(jobSearchId).then(function(jobSearch) {
+			var dataAccess = new DataAccess();
+			var path = "jobSearch";
+			dataAccess.updateData(path, jobSearchId, data).then(
+				function(val) {
+					console.log(val)
+					resolve(jobSearch);
+				},
+				function(val) {
+					reject("couldNotUpdate")
+				}
+			);
+		}, function() {
+			reject();
+			return;
+		});
+	});
 };
 
 module.exports = JobSearchService;

@@ -58,8 +58,10 @@ DataAccess.prototype.getRowCount = function(path) {
 }
 
 DataAccess.prototype.updateData = function(path,id,data) {
+	console.log("update")
 	return new Promise(
 		function(resolve, reject) {       
+			console.log("id: ", id)
 			var ref = firebase.database().ref(path);
 			var node = ref.child(id);
 			node.update(data);
