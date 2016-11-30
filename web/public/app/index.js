@@ -13,6 +13,42 @@ angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies', 'ngTouch',
         controllerAs: 'vm',
         abstract: true
       })
+      .state('home.person', {
+        url: '/person',
+        templateUrl: 'app/views/person.html',
+        controller: 'PersonController',
+        controllerAs: 'vm',
+        data: {
+          title: 'Person'
+        }
+      })
+      .state('home.company', {
+        url: '/company',
+        templateUrl: 'app/views/company.html',
+        controller: 'CompanyController',
+        controllerAs: 'vm',
+        data: {
+          title: 'Company'
+        }
+      })
+      .state('home.jobOffer', {
+        url: '/jobOffer',
+        templateUrl: 'app/views/jobOffer.html',
+        controller: 'JobOfferController',
+        controllerAs: 'vm',
+        data: {
+          title: 'Job Offer'
+        }
+      })   
+      .state('home.jobSearch', {
+        url: '/jobSearch',
+        templateUrl: 'app/views/jobSearch.html',
+        controller: 'JobSearchController',
+        controllerAs: 'vm',
+        data: {
+          title: 'Job Search'
+        }
+      })
       .state('home.dashboard', {
         url: '/dashboard',
         templateUrl: 'app/views/dashboard.html',
@@ -39,7 +75,7 @@ angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies', 'ngTouch',
         }
       });
 
-    $urlRouterProvider.otherwise('/dashboard');
+    $urlRouterProvider.otherwise('/person');
 
     $mdThemingProvider
       .theme('default')
