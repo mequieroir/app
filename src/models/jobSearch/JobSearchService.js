@@ -41,20 +41,24 @@ JobSearchService.prototype.createJobSearch = function(data) {
 				reject(null);
 				return;
 			}
-			var dataAccess = new DataAccess();
-			dataAccess.getRowCount("jobSearch/").then(function(count) {
-				var jobSearchBuilder = new JobSearchBuilder();
-				var id = count + 1;
-				var jobSearch = jobSearchBuilder.createJobSearch(data);
-				jobSearch.setId(jobSearch.title + "-" + id);
-				var jobSearchId = dataAccess.pushData("jobSearch",jobSearch);
-				jobSearch.setJobSearchId(jobSearchId);
-				dataAccess.setData("jobSearch/" + jobSearchId, jobSearch);
-				//dataAccess.setData("jobOffersList/" + user.getUserName(),user.getUserName());
-				resolve(jobSearch);
+			jobSearchValidator.checkIfPerson(data).then(function(val) {
+				var dataAccess = new DataAccess();
+				dataAccess.getRowCount("jobSearch/").then(function(count) {
+					var jobSearchBuilder = new JobSearchBuilder();
+					var id = count + 1;
+					var jobSearch = jobSearchBuilder.createJobSearch(data);
+					jobSearch.setId(jobSearch.title + "-" + id);
+					var jobSearchId = dataAccess.pushData("jobSearch",jobSearch);
+					jobSearch.setJobSearchId(jobSearchId);
+					dataAccess.setData("jobSearch/" + jobSearchId, jobSearch);
+					resolve(jobSearch);
+				}, function(val) {
+					reject(val);
+				});
 			}, function(val) {
+				console.log(3)
 				reject(val);
-			})	
+			});	
 		}
 	);
 }

@@ -29,6 +29,7 @@ UserService.prototype.getUser = function(userId) {
 	return new Promise(
 		function(resolve, reject) {   
 			var path = "users/" + userId;
+			console.log(path)
 			var dataAccess = new DataAccess();
 			dataAccess.getData(path).then(
 			    function(val) {

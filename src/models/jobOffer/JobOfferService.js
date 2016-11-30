@@ -42,20 +42,24 @@ JobOfferService.prototype.createJobOffer = function(data) {
 				reject(data);
 				return;
 			}
-			var dataAccess = new DataAccess();	
-			dataAccess.getRowCount("jobOffer/").then(function(count) {
-				var jobOfferBuilder = new JobOfferBuilder();
-				var id = count + 1;
-				var jobOffer = jobOfferBuilder.createJobOffer(data);
-				jobOffer.setId(jobOffer.title + "-" + id);
-				var jobOfferId = dataAccess.pushData("jobOffer",jobOffer);
-				jobOffer.setJobOfferId(jobOfferId);
-				dataAccess.setData("jobOffer/" + jobOfferId, jobOffer);
-				//dataAccess.setData("jobOffersList/" + user.getUserName(),user.getUserName());
-				resolve(jobOffer);
+			jobOfferValidator.checkIfCompany(data).then(function(val) {
+				var dataAccess = new DataAccess();	
+				dataAccess.getRowCount("jobOffer/").then(function(count) {
+					var jobOfferBuilder = new JobOfferBuilder();
+					var id = count + 1;
+					var jobOffer = jobOfferBuilder.createJobOffer(data);
+					jobOffer.setId(jobOffer.title + "-" + id);
+					var jobOfferId = dataAccess.pushData("jobOffer",jobOffer);
+					jobOffer.setJobOfferId(jobOfferId);
+					dataAccess.setData("jobOffer/" + jobOfferId, jobOffer);
+					resolve(jobOffer);
+				}, function(val) {
+					reject(val);
+				});
 			}, function(val) {
 				reject(val);
 			});
+			
 		}
 	);
 }

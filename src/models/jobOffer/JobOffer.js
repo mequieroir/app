@@ -5,7 +5,7 @@ var jobTypes = ["F", "P", "T"]
 function JobOffer() {
 	this.id = "";
 	this.companyId = 0;
-	this.jobOfferId = 0;
+	this.jobOfferId = "";
 	this.title = "";
 	this.creationDate = new Date();
 	this.description = "";

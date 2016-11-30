@@ -4,7 +4,7 @@ var jobTypes = ["F", "P", "T"]
 
 function JobSearch() {
 	this.id = "";
-	this.userId = 0;
+	this.userId = "";
 	this.jobSearchId = 0;
 	this.title = "";
 	this.creationDate = new Date();
