@@ -9,9 +9,18 @@ function JobSearchService() {
 }
 
 JobSearchService.prototype.getJobSearchs = function() {
-	console.log("i am at jobSearch")
-	var data = this.dataAccess.getData("jobSearch/");
-	return data;
+	return new Promise(
+		function(resolve, reject) {   
+			var dataAccess = new DataAccess();
+			dataAccess.getData("jobSearch").then(
+			    function(val) {
+			    	if (val == null){
+						reject(val);
+					}
+					resolve(val)
+				}
+			);
+	});
 }
 
 JobSearchService.prototype.getJobSearch = function(id) {

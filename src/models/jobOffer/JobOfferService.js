@@ -9,8 +9,18 @@ function JobOfferService() {
 }
 
 JobOfferService.prototype.getJobOffers = function() {
-	var data = this.dataAccess.getData("jobOffer/");
-	return data;
+	return new Promise(
+		function(resolve, reject) {   
+			var dataAccess = new DataAccess();
+			dataAccess.getData("jobOffer").then(
+			    function(val) {
+			    	if (val == null){
+						reject(val);
+					}
+					resolve(val)
+				}
+			);
+	});
 }
 
 JobOfferService.prototype.getJobOffer = function(id) {
