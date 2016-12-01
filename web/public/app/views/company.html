@@ -3,8 +3,7 @@
         <thead>
         <tr>
             <th>User Name</th>
-            <th>Firs Name</th>
-            <th>Last Name</th>
+            <th>Company Name</th>
             <th>Age</th>
             <th>Email</th>
             <th>Telephone</th>
@@ -13,11 +12,9 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="data in vm.users |  filter: { type: 'person' }">
+        <tr ng-repeat="data in vm.users |  filter: { type: 'company' }">
             <td data-title="UserName">{{data.userName}}</td>
-            <td data-title="FirsName">{{data.firstName}}</td>
-            <td data-title="LastName">{{data.lastName}}</td>
-            <td data-title="Age">{{data.age}}</td>
+            <td data-title="CompanyName">{{data.companyName}}</td>
             <td data-title="Email">{{data.email}}</td>
             <td data-title="Email">{{data.telephone}}</td>
             <td data-title="Address">{{data.address}}</td>

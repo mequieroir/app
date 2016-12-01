@@ -16,12 +16,21 @@ angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies', 'ngTouch',
       .state('home.person', {
         url: '/person',
         templateUrl: 'app/views/person.html',
-        controller: 'PersonController',
+        controller: 'UserController',
         controllerAs: 'vm',
         data: {
           title: 'Person'
         }
-      })      
+      }) 
+       .state('home.company', {
+        url: '/company',
+        templateUrl: 'app/views/company.html',
+        controller: 'UserController',
+        controllerAs: 'vm',
+        data: {
+          title: 'Company'
+        }
+      })     
       .state('home.profile', {
         url: '/profile',
         templateUrl: 'app/views/personProfile.html',
@@ -32,15 +41,7 @@ angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies', 'ngTouch',
           title: 'PersonProfile'
         }
       })
-      .state('home.company', {
-        url: '/company',
-        templateUrl: 'app/views/company.html',
-        controller: 'CompanyController',
-        controllerAs: 'vm',
-        data: {
-          title: 'Company'
-        }
-      })
+     
       .state('home.jobOffer', {
         url: '/jobOffer',
         templateUrl: 'app/views/jobOffer.html',

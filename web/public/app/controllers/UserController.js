@@ -2,12 +2,12 @@
 
   angular
        .module('app')
-       .controller('PersonController', [
+       .controller('UserController', [
          '$q', '$state', 'ApiConnectionService',
-          PersonController
+          UserController
        ]);
 
-  function PersonController($q, $state, ApiConnectionService) {
+  function UserController($q, $state, ApiConnectionService) {
     var vm = this;
     vm.users = [];
 
