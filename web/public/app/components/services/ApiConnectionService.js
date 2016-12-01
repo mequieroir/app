@@ -2,13 +2,13 @@
   'use strict';
 
   angular.module('app')
-        .service('ApiConectionService', [
+        .service('ApiConnectionService', [
         '$q',
         '$http',
-        ApiConectionService
+        ApiConnectionService
   ]);
 
-  function ApiConectionService($q,$http){
+  function ApiConnectionService($q,$http){
     var _herokuUrl = 'http://me-quiero-ir-api.herokuapp.com/';
     
     function _callApi(requestData){

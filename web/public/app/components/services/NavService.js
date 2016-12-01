@@ -35,9 +35,9 @@
         sref: '.dashboard'
       },
       {
-        name: 'Profile',
+        name: 'Profile2',
         icon: 'person',
-        sref: '.profile'
+        sref: '.profile2'
       },
       {
         name: 'Table',
