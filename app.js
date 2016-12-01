@@ -4,7 +4,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./src/routes/routes');
-var cors = require('cors')
+var cors = require('cors');
 var app = express();
 
 app.use(logger('dev'));
