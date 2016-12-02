@@ -66,10 +66,6 @@ heroku deploy
 Se utilizo una base de datos no relacional, la cual es un servicio brindado por [Firebase][firebase] 
 
 
-## Documentacion
-
-La documentacion se encuentra aqui [link](https://github.com/mequieroir/me-quiero-ir-api/blob/master/docs/doc.md)
-
 [git]: http://git-scm.com/
 [npm]: https://www.npmjs.org/
 [node]: http://nodejs.org
