@@ -2,10 +2,9 @@
 
 ### Prerequisites
 
-You will need git to clone **me-quiero-ir-api** repository. You can get git from [git][git].
-
-We also use a number of node.js tools to initialize and test me-quiero-ir-api. You must have node.js and
-its package manager [npm][npm] installed.  You can get them from [node][node].
+- git
+- npm
+- nodejs
 
 ### Clone me-quiero-ir-api
 
