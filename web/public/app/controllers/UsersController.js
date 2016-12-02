@@ -17,6 +17,12 @@
       $state.go(path,{userId:data.userId})
     }    
 
+     vm.new = function(data) {
+      console.log('data',data);
+      var path = "home." + data
+      $state.go(path,null)
+    }    
+
     function init(){
     	var requestData = {
     		path:"user",
