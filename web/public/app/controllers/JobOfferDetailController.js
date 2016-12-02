@@ -10,7 +10,7 @@
   function JobOfferDetailController($q, $state, JobOfferService, $timeout, $stateParams) {
     var vm = this;
 
-    vm.offer = JobOfferService.getOffer();
+    vm.jobOffer = JobOfferService.getOffer();
 
     vm.getJobOffer = function(id) {
     	JobOfferService.getJobOffer(id);

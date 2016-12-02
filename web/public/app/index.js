@@ -52,9 +52,18 @@ angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies', 'ngTouch',
         }
       })
       .state('home.jobOfferDetail', {
-        url: '/jobOffer/:id',
+        url: '/jobOffer/detail/:id',
         templateUrl: 'app/views/jobOfferDetail.html',
         controller: 'JobOfferDetailController',
+        controllerAs: 'vm',
+        data: {
+          title: 'Job Offer'
+        }
+      })
+      .state('home.jobOfferEdit', {
+        url: '/jobOffer/edit/:id',
+        templateUrl: 'app/views/JobOfferEdit.html',
+        controller: 'JobOfferEditController',
         controllerAs: 'vm',
         data: {
           title: 'Job Offer'

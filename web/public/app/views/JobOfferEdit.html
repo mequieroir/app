@@ -1,0 +1,39 @@
+<!-- TODO: Add validations -->
+<md-content md-theme="dark" class="md-padding" layout="row" layout-sm="column">
+    <md-input-container>
+        <label>Title</label>
+        <input ng-model="vm.jobOffer.title"></input>
+    </md-input-container>
+    <md-input-container>
+        <label>Description</label>
+        <textarea ng-model="vm.jobOffer.description"></textarea>
+    </md-input-container>
+</md-content>
+<md-content class="md-padding">
+    <form name="jobOfferForm">
+        <div layout layout-sm="column">
+            <md-input-container flex>
+                <label>Gross Salary</label>
+                <input ng-model="vm.jobOffer.grossSalary"></input>
+            </md-input-container>
+            <md-input-container flex>
+                <label>Job Type</label>
+                <input ng-model="vm.jobOffer.jobType"></input>
+            </md-input-container>
+            <md-input-container flex>
+                <label>Job Type</label>
+                <input ng-model="vm.jobOffer.expirationDate"></input>
+            </md-input-container>
+        </div>
+    </form>
+</md-content>
+<md-content class="md-padding"></md-content>
+<md-content md-theme="dark" class="md-padding" layout="row" layout-sm="column">
+	 <md-button class="md-raised " ng-click="vm.save()">
+        Save
+    </md-button>
+     <md-button class="md-raised md-warn" ng-click="vm.cancel()">
+        Cancel
+    </md-button>
+</md-content>
+
