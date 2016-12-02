@@ -3,14 +3,14 @@
 
   angular
        .module('app')
-       .controller('PersonController', [
+       .controller('CompanyController', [
          '$q', '$state','$stateParams', 'ApiConnectionService',
-          PersonController
+          CompanyController
        ]);
        /**
        * TODO: REFACTORIZAR A UN SERVICE
        */
-  function PersonController($q, $state, $stateParams,ApiConnectionService) {
+  function CompanyController($q, $state, $stateParams,ApiConnectionService) {
     var vm = this;
     vm.user = {} 
 
@@ -19,10 +19,11 @@
       var _path = "user";
       var _method= "POST"
       var _data = vm.user;
+      _data.type = 'company';
       if (vm.user.userId != undefined) {
         _path ="user/" + vm.user.userId;
         _method = "PUT";
-        _data.type = 'company'
+
       }
        
       var requestData = {

@@ -17,13 +17,18 @@
     vm.save = function(argument) {
       // body...
         
-           var _path = "user";
+      var _path = "user";
       var _method= "POST"
       var _data = vm.user;
+      _data.type = 'person'
       if (vm.user.userId != undefined) {
         _path ="user/" + vm.user.userId;
         _method = "PUT";
-        _data.type = 'person'
+      }
+      var requestData = {
+        path: _path,
+        method: _method,
+        data: _data
       }
       ApiConnectionService.callApi(requestData)
       .then(function(data){
@@ -37,8 +42,6 @@
     vm.cancel = function(argument) {
       $state.transitionTo('home.people');
     }
-
-
 
     function init(){
       var id = $stateParams.userId
