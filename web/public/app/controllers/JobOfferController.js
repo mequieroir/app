@@ -26,6 +26,10 @@
       $state.go(path,{id:id}) 
     }
 
+    vm.new = function() {
+      var path = "home.jobOfferEdit";
+      $state.go(path,{id:null});
+    }
     vm.getJobOffers();
 
   }
