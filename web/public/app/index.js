@@ -13,35 +13,44 @@ angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies', 'ngTouch',
         controllerAs: 'vm',
         abstract: true
       })
+      .state('home.people', {
+        url: '/people',
+        templateUrl: 'app/views/people.html',
+        controller: 'UsersController',
+        controllerAs: 'vm',
+        data: {
+          title: 'People'
+        }
+      }) 
+       .state('home.companies', {
+        url: '/companies',
+        templateUrl: 'app/views/companies.html',
+        controller: 'UsersController',
+        controllerAs: 'vm',
+        data: {
+          title: 'Companies'
+        }
+      })     
       .state('home.person', {
         url: '/person',
         templateUrl: 'app/views/person.html',
-        controller: 'UserController',
-        controllerAs: 'vm',
-        data: {
-          title: 'Person'
-        }
-      }) 
-       .state('home.company', {
-        url: '/company',
-        templateUrl: 'app/views/company.html',
-        controller: 'UserController',
-        controllerAs: 'vm',
-        data: {
-          title: 'Company'
-        }
-      })     
-      .state('home.profile', {
-        url: '/profile',
-        templateUrl: 'app/views/personProfile.html',
-        controller: 'PersonProfileController',
+        controller: 'PersonController',
         controllerAs: 'vm',
         params:      {'userId': null},
         data: {
-          title: 'PersonProfile'
+          title: 'Person'
         }
       })
-     
+      .state('home.company', {
+        url: '/company',
+        templateUrl: 'app/views/company.html',
+        controller: 'CompanyController',
+        controllerAs: 'vm',
+        params:      {'userId': null},
+        data: {
+          title: 'Company'
+        }
+      })
       .state('home.jobOfferDetail', {
         url: '/jobOffer/:id',
         templateUrl: 'app/views/jobOfferDetail.html',
@@ -84,27 +93,9 @@ angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies', 'ngTouch',
         data: {
           title: 'Dashboard'
         }
-      })
-      .state('home.profile2', {
-        url: '/profile2',
-        templateUrl: 'app/views/profile.html',
-        controller: 'ProfileController',
-        controllerAs: 'vm',
-        data: {
-          title: 'Profile'
-        }
-      })
-      .state('home.table', {
-        url: '/table',
-        controller: 'TableController',
-        controllerAs: 'vm',
-        templateUrl: 'app/views/table.html',
-        data: {
-          title: 'Table'
-        }
       });
 
-    $urlRouterProvider.otherwise('/person');
+    $urlRouterProvider.otherwise('/people');
 
     $mdThemingProvider
       .theme('default')

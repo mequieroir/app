@@ -2,18 +2,19 @@
 
   angular
        .module('app')
-       .controller('UserController', [
+       .controller('UsersController', [
          '$q', '$state', 'ApiConnectionService',
-          UserController
+          UsersController
        ]);
 
-  function UserController($q, $state, ApiConnectionService) {
+  function UsersController($q, $state, ApiConnectionService) {
     var vm = this;
     vm.users = [];
 
     vm.editProfile = function(data) {
       console.log('data',data);
-      $state.go('home.profile',{userId:data.userId})
+      var path = "home." + data.type
+      $state.go(path,{userId:data.userId})
     }    
 
     function init(){

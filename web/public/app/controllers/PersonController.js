@@ -1,13 +1,14 @@
+           
 (function(){
 
   angular
        .module('app')
-       .controller('PersonProfileController', [
+       .controller('PersonController', [
          '$q', '$state','$stateParams', 'ApiConnectionService',
-          PersonProfileController
+          PersonController
        ]);
 
-  function PersonProfileController($q, $state, $stateParams,ApiConnectionService) {
+  function PersonController($q, $state, $stateParams,ApiConnectionService) {
     var vm = this;
     vm.user = {} 
 
@@ -21,15 +22,15 @@
       }
       ApiConnectionService.callApi(requestData)
       .then(function(data){
-        $state.transitionTo('home.person');
+        $state.transitionTo('home.people');
       },function(data){
-        $state.transitionTo('home.person');
+        $state.transitionTo('home.people');
         console.log("error")
       })
     }
 
     vm.cancel = function(argument) {
-      $state.transitionTo('home.person');
+      $state.transitionTo('home.people');
     }
 
     function init(){

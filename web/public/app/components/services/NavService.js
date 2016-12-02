@@ -10,14 +10,14 @@
   function navService($q){
     var menuItems = [
       {
-        name: 'Person',
+        name: 'People',
         icon: 'person',
-        sref: '.person'
+        sref: '.people'
       },
       {
-        name: 'Company',
+        name: 'Companies',
         icon: 'dashboard',
-        sref: '.company'
+        sref: '.companies'
       },
       {
         name: 'Job Offer',
