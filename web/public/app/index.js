@@ -42,6 +42,15 @@ angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies', 'ngTouch',
         }
       })
      
+      .state('home.jobOfferDetail', {
+        url: '/jobOffer/:id',
+        templateUrl: 'app/views/jobOfferDetail.html',
+        controller: 'JobOfferDetailController',
+        controllerAs: 'vm',
+        data: {
+          title: 'Job Offer'
+        }
+      })
       .state('home.jobOffer', {
         url: '/jobOffer',
         templateUrl: 'app/views/jobOffer.html',
@@ -50,14 +59,23 @@ angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies', 'ngTouch',
         data: {
           title: 'Job Offer'
         }
-      })   
+      })
       .state('home.jobSearch', {
-        url: '/jobSearch',
+        url: '/jobSearch/',
         templateUrl: 'app/views/jobSearch.html',
         controller: 'JobSearchController',
         controllerAs: 'vm',
         data: {
           title: 'Job Search'
+        }
+      })
+      .state('home.jobSearchDetail', {
+        url: '/jobSearch/detail/:id',
+        templateUrl: 'app/views/JobSearchDetail.html',
+        controller: 'JobSearchDetailController',
+        controllerAs: 'vm',
+        data: {
+          title: 'Job Offer'
         }
       })
       .state('home.dashboard', {

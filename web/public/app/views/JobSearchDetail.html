@@ -1,0 +1,24 @@
+<h2>{{vm.search.title}}</h2>
+<md-content class="md-padding" layout="row" layout-sm="column" style="width:70%">
+	    <md-input-container class="md-block" style="width:100%">
+	        <label>description</label>
+	        <textarea  ng-model="vm.search.description" d-maxlength="500" rows="5" disabled></textarea>
+	    </md-input-container>
+</md-content>
+<md-content layout-padding>
+    <div>
+      	<form name="jobSearchForm">
+	        <div layout-gt-xs="row">
+	          <md-input-container class="md-block" flex-gt-xs>
+	            <label>Gross Salary</label>
+        		<input  ng-model="vm.search.grossSalary" disabled></input>
+	          </md-input-container>
+
+	          <md-input-container>
+	            <label>Job Type</label>
+	            <input ng-model="vm.search.jobType" disabled></md-input>
+	          </md-input-container>
+	        </div>
+		</form>	
+	</div>
+</md-content>
