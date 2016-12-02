@@ -5,11 +5,11 @@
         .service('JobOfferService', [
         '$q',
         '$http',
-        'ApiConectionService',
+        'ApiConnectionService',
         JobOfferService
   ]);
 
-  function JobOfferService($q,$http, ApiConectionService){
+  function JobOfferService($q,$http, ApiConnectionService){
     
     function _getJobOffer(userId){
       var deferred = $q.defer();
@@ -17,7 +17,7 @@
       request.method = "GET";
       request.url = "jobOffer/" + userId;
       request.data = {};
-      ApiConectionService.callApi(request).then(
+      ApiConnectionService.callApi(request).then(
         function(response) {
           deferred.resolve(response);
         },
@@ -34,7 +34,7 @@
       request.method = "GET";
       request.url = "jobOffer/";
       request.data = {};
-      ApiConectionService.callApi(request).then(
+      ApiConnectionService.callApi(request).then(
         function(response) {
           deferred.resolve(response);
         },
@@ -51,7 +51,7 @@
       request.method = "POST";
       request.url = "jobOffer/";
       request.data = jobOffer;
-      ApiConectionService.callApi(request).then(
+      ApiConnectionService.callApi(request).then(
         function(response) {
           deferred.resolve(response);
         },
@@ -68,7 +68,7 @@
       request.method = "PUT";
       request.url = "jobOffer/";
       request.data = jobOffer;
-      ApiConectionService.callApi(request).then(
+      ApiConnectionService.callApi(request).then(
         function(response) {
           deferred.resolve(response);
         },

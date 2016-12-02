@@ -3,11 +3,11 @@
   angular
        .module('app')
        .controller('UserController', [
-         '$q', '$state', 'ApiConectionService',
+         '$q', '$state', 'ApiConnectionService',
           UserController
        ]);
 
-  function UserController($q, $state, ApiConectionService) {
+  function UserController($q, $state, ApiConnectionService) {
     var vm = this;
     vm.users = [];
 
@@ -21,7 +21,7 @@
     		path:"user",
         method: "GET"
     	}
-    	ApiConectionService.callApi(requestData)
+    	ApiConnectionService.callApi(requestData)
     	.then(function(data){
     		vm.users = Object.keys(data).map(key => data[key]);
     	},function(data){
