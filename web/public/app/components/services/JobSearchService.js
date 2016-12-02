@@ -9,7 +9,7 @@
         JobSearchService
   ]);
 
-  function JobSearchService($q,$http, ApiConectionService){
+  function JobSearchService($q,$http, ApiConnectionService){
     var srv = {};
     srv.searchs = {};
     srv.search = {};
@@ -22,7 +22,7 @@
       request.method = "GET";
       request.path = "jobSearch/" + userId;
       request.data = {};
-      ApiConectionService.callApi(request).then(
+      ApiConnectionService.callApi(request).then(
         function(response) {
           console.log(response)
           angular.copy(response, srv.search)
@@ -37,7 +37,7 @@
       request.method = "GET";
       request.path = "jobSearch/";
       request.data = {};
-      ApiConectionService.callApi(request).then(
+      ApiConnectionService.callApi(request).then(
         function(response) {
           console.log(srv.searchs)
           angular.copy(response, srv.searchs)//srv.searchs = response;
@@ -54,7 +54,7 @@
       request.method = "POST";
       request.path = "jobSearch/";
       request.data = jobSearch;
-      ApiConectionService.callApi(request).then(
+      ApiConnectionService.callApi(request).then(
         function(response) {
           console.log(response);
         },
@@ -69,7 +69,7 @@
       request.method = "PUT";
       request.path = "jobSearch/";
       request.data = jobSearch;
-      ApiConectionService.callApi(request).then(
+      ApiConnectionService.callApi(request).then(
         function(response) {
           console.log(response);
         },

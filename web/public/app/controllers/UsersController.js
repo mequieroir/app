@@ -2,18 +2,25 @@
 
   angular
        .module('app')
-       .controller('UserController', [
-         '$q', '$state', 'ApiConectionService',
-          UserController
+       .controller('UsersController', [
+         '$q', '$state', 'ApiConnectionService',
+          UsersController
        ]);
 
-  function UserController($q, $state, ApiConectionService) {
+  function UsersController($q, $state, ApiConnectionService) {
     var vm = this;
     vm.users = [];
 
     vm.editProfile = function(data) {
       console.log('data',data);
-      $state.go('home.profile',{userId:data.userId})
+      var path = "home." + data.type
+      $state.go(path,{userId:data.userId})
+    }    
+
+     vm.new = function(data) {
+      console.log('data',data);
+      var path = "home." + data
+      $state.go(path,null)
     }    
 
     function init(){
@@ -21,7 +28,7 @@
     		path:"user",
         method: "GET"
     	}
-    	ApiConectionService.callApi(requestData)
+    	ApiConnectionService.callApi(requestData)
     	.then(function(data){
     		vm.users = Object.keys(data).map(key => data[key]);
     	},function(data){

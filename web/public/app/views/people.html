@@ -1,0 +1,38 @@
+<md-content md-theme="dark" class="md-padding" layout="row" layout-sm="column">
+     <md-button class="md-raised " ng-click="vm.new('person')">
+        New
+    </md-button>    
+</md-content>
+<md-content class="md-padding"></md-content>
+<div class="table-responsive-vertical md-whiteframe-z1">
+    <table id="table" class="table table-hover table-bordered">
+        <thead>
+        <tr>
+            <th>User Name</th>
+            <th>Firs Name</th>
+            <th>Last Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Telephone</th>
+            <th>Address</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="data in vm.users |  filter: { type: 'person' }">
+            <td data-title="UserName">{{data.userName}}</td>
+            <td data-title="FirsName">{{data.firstName}}</td>
+            <td data-title="LastName">{{data.lastName}}</td>
+            <td data-title="Age">{{data.age}}</td>
+            <td data-title="Email">{{data.email}}</td>
+            <td data-title="Email">{{data.telephone}}</td>
+            <td data-title="Address">{{data.address}}</td>
+            <td data-title="View">
+                <md-button class="md-fab md-wayrn md-mini" ng-click="vm.editProfile(data)">
+                <i class="material-icons">edit</i>
+            </md-button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

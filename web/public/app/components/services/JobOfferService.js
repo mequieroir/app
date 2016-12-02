@@ -5,11 +5,11 @@
         .service('JobOfferService', [
         '$q',
         '$http',
-        'ApiConectionService',
+        'ApiConnectionService',
         JobOfferService
   ]);
 
-  function JobOfferService($q,$http, ApiConectionService){
+  function JobOfferService($q,$http, ApiConnectionService){
     
     var srv = {};
     srv.offers = {};
@@ -23,7 +23,7 @@
       request.method = "GET";
       request.path = "jobOffer/" + userId;
       request.data = {};
-      ApiConectionService.callApi(request).then(
+      ApiConnectionService.callApi(request).then(
         function(response) {
           console.log(response)
           angular.copy(response, srv.offer)
@@ -38,7 +38,7 @@
       request.method = "GET";
       request.path = "jobOffer/";
       request.data = {};
-      ApiConectionService.callApi(request).then(
+      ApiConnectionService.callApi(request).then(
         function(response) {
           console.log(srv.offers)
           angular.copy(response, srv.offers)//srv.offers = response;
@@ -55,7 +55,7 @@
       request.method = "POST";
       request.path = "jobOffer/";
       request.data = jobOffer;
-      ApiConectionService.callApi(request).then(
+      ApiConnectionService.callApi(request).then(
         function(response) {
           console.log(response);
         },
@@ -70,7 +70,7 @@
       request.method = "PUT";
       request.path = "jobOffer/";
       request.data = jobOffer;
-      ApiConectionService.callApi(request).then(
+      ApiConnectionService.callApi(request).then(
         function(response) {
           console.log(response);
         },

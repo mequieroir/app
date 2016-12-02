@@ -10,14 +10,14 @@
   function navService($q){
     var menuItems = [
       {
-        name: 'Person',
+        name: 'People',
         icon: 'person',
-        sref: '.person'
+        sref: '.people'
       },
       {
-        name: 'Company',
+        name: 'Companies',
         icon: 'dashboard',
-        sref: '.company'
+        sref: '.companies'
       },
       {
         name: 'Job Offer',
@@ -28,21 +28,6 @@
         name: 'Job Search',
         icon: 'view_module',
         sref: '.jobSearch'
-      },
-        {
-        name: 'Dashboard',
-        icon: 'dashboard',
-        sref: '.dashboard'
-      },
-      {
-        name: 'Profile2',
-        icon: 'person',
-        sref: '.profile2'
-      },
-      {
-        name: 'Table',
-        icon: 'view_module',
-        sref: '.table'
       }
     ];
 

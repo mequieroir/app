@@ -3,29 +3,28 @@
 
   angular
        .module('app')
-       .controller('CompanyController', [
+       .controller('PersonController', [
          '$q', '$state','$stateParams', 'ApiConnectionService',
-          CompanyController
+          PersonController
        ]);
        /**
        * TODO: REFACTORIZAR A UN SERVICE
        */
-  function CompanyController($q, $state, $stateParams,ApiConnectionService) {
+  function PersonController($q, $state, $stateParams,ApiConnectionService) {
     var vm = this;
     vm.user = {} 
 
     vm.save = function(argument) {
       // body...
+        
       var _path = "user";
       var _method= "POST"
       var _data = vm.user;
-      _data.type = 'company';
+      _data.type = 'person'
       if (vm.user.userId != undefined) {
         _path ="user/" + vm.user.userId;
         _method = "PUT";
-
       }
-       
       var requestData = {
         path: _path,
         method: _method,
@@ -33,18 +32,16 @@
       }
       ApiConnectionService.callApi(requestData)
       .then(function(data){
-        $state.transitionTo('home.companies');
+        $state.transitionTo('home.people');
       },function(data){
-        $state.transitionTo('home.companies');
+        $state.transitionTo('home.people');
         console.log("error")
       })
     }
 
     vm.cancel = function(argument) {
-      $state.transitionTo('home.companies');
+      $state.transitionTo('home.people');
     }
-
-
 
     function init(){
       var id = $stateParams.userId
@@ -62,7 +59,7 @@
             console.log("error")
           })
       }
-      
+    	
     }
 
     init();
