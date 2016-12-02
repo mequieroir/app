@@ -63,6 +63,7 @@
       }
     	
     }
+    
     function showSimpleToast(title) {
       $mdToast.show(
         $mdToast.simple()

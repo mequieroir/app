@@ -1,3 +1,12 @@
+<md-content md-theme="dark" class="md-padding" layout="row" layout-sm="column">
+     <md-button class="md-raised " ng-click="vm.signIn()">
+        Sign in
+    </md-button>
+    <md-select ng-model="vm.userSignIn" placeholder="{{user.userName}}" class="md-no-underline">
+      <md-option ng-repeat="user in vm.users" value="{{user.userId}}">{{user.userName}}</md-option>
+    </md-select>
+</md-content>
+<md-content class="md-padding"></md-content>
 <h2>{{vm.search.title}}</h2>
 <md-content class="md-padding" layout="row" layout-sm="column" style="width:70%">
 	    <md-input-container class="md-block" style="width:100%">
