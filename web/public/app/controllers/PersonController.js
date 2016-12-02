@@ -17,12 +17,13 @@
     vm.save = function(argument) {
       // body...
         
-      var _path = (vm.user.userId != undefined) ? "user/" + vm.user.userId : "user/";
-      var _method = (vm.user.userId != undefined) ? "PUT":"POST";
-      var requestData = {
-        path: _path,
-        method: _method,
-        data: vm.user
+           var _path = "user";
+      var _method= "POST"
+      var _data = vm.user;
+      if (vm.user.userId != undefined) {
+        _path ="user/" + vm.user.userId;
+        _method = "PUT";
+        _data.type = 'person'
       }
       ApiConnectionService.callApi(requestData)
       .then(function(data){
