@@ -49,32 +49,32 @@
       );
     }
 
-    function _createJobSearch(jobSearch) {
+    srv.createJobSearch = function(jobSearch) {
       var request = {};
       request.method = "POST";
       request.path = "jobSearch/";
       request.data = jobSearch;
       ApiConectionService.callApi(request).then(
         function(response) {
-          deferred.resolve(response);
+          console.log(response);
         },
         function(response) {
-          deferred.reject(response);
+          console.log(response);
         }
       );
     }
 
-    function _updateJobSearch(jobSearch) {
+    srv.updateJobSearch = function(jobSearch) {
       var request = {};
       request.method = "PUT";
       request.path = "jobSearch/";
       request.data = jobSearch;
       ApiConectionService.callApi(request).then(
         function(response) {
-          deferred.resolve(response);
+          console.log(response);
         },
         function(response) {
-          deferred.reject(response);
+          console.log(response);
         }
       );
     }

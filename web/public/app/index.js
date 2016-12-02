@@ -75,7 +75,16 @@ angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies', 'ngTouch',
         controller: 'JobSearchDetailController',
         controllerAs: 'vm',
         data: {
-          title: 'Job Offer'
+          title: 'Job Search'
+        }
+      })
+      .state('home.jobSearchEdit', {
+        url: '/jobSearch/edit/:id',
+        templateUrl: 'app/views/JobSearchEdit.html',
+        controller: 'JobSearchEditController',
+        controllerAs: 'vm',
+        data: {
+          title: 'Job Search'
         }
       })
       .state('home.dashboard', {
