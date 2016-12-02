@@ -25,6 +25,12 @@
       var path = "home.jobSearchDetail";
       $state.go(path,{id:id}) 
     }
+
+    vm.new = function() {
+      var path = "home.jobSearchEdit";
+      $state.go(path,{id:null});
+    }
+
     vm.getJobSearchs();
 
   }
