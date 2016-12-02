@@ -15,8 +15,8 @@
     srv.offers = {};
     srv.offer = {};
 
-    srv.getSearchs = function() {return srv.offers}
-    srv.getSearch = function() {console.log(1);return srv.offer}
+    srv.getOffers = function() {return srv.offers}
+    srv.getOffer = function() {console.log(1);return srv.offer}
 
     srv.getJobOffer = function(userId){
       var request = {};
