@@ -44,19 +44,18 @@ npm start
 
 ### Run UnitTests
 
-Simply open a Terminal window and run `npm run tests` to start all your [Karma][karma] unit tests.
-"test": "karma start ./test/karma.conf.js --reporters progress,junit,coverage"
+Se realizaron test utilizando [Mocha][mocha]
+
+```
+npm test
+```
 ## Continuous Integration
 
 ### Travis CI
 
-[Travis-CI][travis] is a continuous integration service, which can monitor GitHub for new commits
-to your repository and execute scripts such as building the app or running tests. The angular-seed
-project contains a Travis configuration file, `.travis.yml`, which will cause Travis to run your
-tests when you push to GitHub. 
-
+Se utilizo [Travis-CI][travis] para la integracion continua
 ## Deploy
-Se encuentra en la siguiente url (https://me-quiero-ir-api.herokuapp.com/)[https://me-quiero-ir-api.herokuapp.com/]
+Se encuentra en la siguiente url [https://me-quiero-ir-api.herokuapp.com/]
 
 ### Heroku
 
@@ -77,4 +76,5 @@ La documentacion se encuentra aqui [link](https://github.com/mequieroir/me-quier
 [node]: http://nodejs.org
 [travis]: https://travis-ci.org/
 [firebase]: https://firebase.google.com/
-[heroku]: https://www.heroku.com
+[heroku]: https://www.heroku.com/
+[Mocha]: https://mochajs.org/
