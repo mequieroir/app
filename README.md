@@ -56,20 +56,25 @@ project contains a Travis configuration file, `.travis.yml`, which will cause Tr
 tests when you push to GitHub. 
 
 ## Deploy
+Se encuentra en la siguiente url (https://me-quiero-ir-api.herokuapp.com/)[https://me-quiero-ir-api.herokuapp.com/]
 
 ### Heroku
-asds
+
+Se puede hacer un deploy en heroku mediante el comando
+```
+heroku deploy
+```
+## Base de datos
+Se utilizo una base de datos no relacional, la cual es un servicio brindado por [Firebase][firebase] 
+
 
 ## Documentacion
 
 La documentacion se encuentra aqui [link](https://github.com/mequieroir/me-quiero-ir-api/blob/master/docs/doc.md)
 
 [git]: http://git-scm.com/
-[bower]: http://bower.io
 [npm]: https://www.npmjs.org/
 [node]: http://nodejs.org
-[protractor]: https://github.com/angular/protractor
-[jasmine]: http://jasmine.github.io
-[karma]: http://karma-runner.github.io
 [travis]: https://travis-ci.org/
-[http-server]: https://github.com/nodeapps/http-server
+[firebase]: https://firebase.google.com/
+[heroku]: https://www.heroku.com
