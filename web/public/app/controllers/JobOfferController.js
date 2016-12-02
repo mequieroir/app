@@ -16,6 +16,16 @@
     	JobOfferService.getJobOffers();
     }
 
+    vm.goToEdit = function(id) {
+      var path = "home.jobOfferEdit";
+      $state.go(path,{id:id})
+    }
+
+    vm.goToDetail = function(id) {
+      var path = "home.jobOfferDetail";
+      $state.go(path,{id:id}) 
+    }
+
     vm.getJobOffers();
 
   }
