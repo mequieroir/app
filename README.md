@@ -15,7 +15,6 @@ git clone https://github.com/mequieroir/me-quiero-ir-api.git
 cd me-quiero-ir-api
 ```
 
-
 #### Install Dependencies
 
 * We get the tools we depend upon via `npm`.
@@ -53,8 +52,21 @@ npm test
 ### Travis CI
 
 Se utilizo [Travis-CI][travis] para la integracion continua
-## Deploy
-Se encuentra en la siguiente url [https://me-quiero-ir-api.herokuapp.com/]
+
+## Base de datos
+Se utilizo una base de datos no relacional, la cual es un servicio brindado por [Firebase][firebase] 
+
+## Hosting App
+
+Se puede acceder a la App en
+
+- https://me-quiero-ir-api.firebaseapp.com/
+
+## API
+
+Se encuentra hosteada en la siguiente url 
+
+- https://me-quiero-ir-api.herokuapp.com/
 
 ### Heroku
 
@@ -62,9 +74,6 @@ Se puede hacer un deploy en heroku mediante el comando
 ```
 heroku deploy
 ```
-## Base de datos
-Se utilizo una base de datos no relacional, la cual es un servicio brindado por [Firebase][firebase] 
-
 
 [git]: http://git-scm.com/
 [npm]: https://www.npmjs.org/
