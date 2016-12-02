@@ -70,7 +70,7 @@ angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies', 'ngTouch',
         }
       })
       .state('home.jobSearch', {
-        url: '/jobSearch/',
+        url: '/jobSearch',
         templateUrl: 'app/views/jobSearch.html',
         controller: 'JobSearchController',
         controllerAs: 'vm',
