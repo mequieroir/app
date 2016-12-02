@@ -33,8 +33,10 @@
       }
       ApiConnectionService.callApi(requestData)
       .then(function(data){
+        showSimpleToast("Accion ejecutada")
         $state.transitionTo('home.companies');
       },function(data){
+        showSimpleToast("Error al ejecutar accion")
         $state.transitionTo('home.companies');
         console.log("error")
       })

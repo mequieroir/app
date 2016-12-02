@@ -4,13 +4,13 @@
   angular
        .module('app')
        .controller('PersonController', [
-         '$q', '$state','$stateParams', 'ApiConnectionService',
+         '$q', '$state','$stateParams', '$mdToast', 'ApiConnectionService',
           PersonController
        ]);
        /**
        * TODO: REFACTORIZAR A UN SERVICE
        */
-  function PersonController($q, $state, $stateParams,ApiConnectionService) {
+  function PersonController($q, $state, $stateParams,$mdToast,ApiConnectionService) {
     var vm = this;
     vm.user = {} 
 
@@ -32,8 +32,10 @@
       }
       ApiConnectionService.callApi(requestData)
       .then(function(data){
+        showSimpleToast("Accion ejecutada")
         $state.transitionTo('home.people');
       },function(data){
+        showSimpleToast("Error al ejecutar accion")
         $state.transitionTo('home.people');
         console.log("error")
       })
@@ -61,7 +63,14 @@
       }
     	
     }
-
+    function showSimpleToast(title) {
+      $mdToast.show(
+        $mdToast.simple()
+          .content(title)
+          .hideDelay(2000)
+          .position('bottom right')
+      );
+    }
     init();
 
 
