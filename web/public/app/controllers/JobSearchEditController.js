@@ -25,11 +25,12 @@
     }
 
     function init(){
-      var id = $stateParams.jobSearchId
+      var id = $stateParams.id
       if (id) {
         JobSearchService.getJobSearch(id);
       }
       vm.jobSearch = JobSearchService.getSearch();
+      console.log(vm.jobSearch)
     }
 
     init();

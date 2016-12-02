@@ -19,6 +19,7 @@
 
     srv.getJobSearch = function(userId){
       var request = {};
+      console.log(userId)
       request.method = "GET";
       request.path = "jobSearch/" + userId;
       request.data = {};

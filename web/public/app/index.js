@@ -52,19 +52,21 @@ angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies', 'ngTouch',
         }
       })
       .state('home.jobOfferDetail', {
-        url: '/jobOffer/detail/:id',
+        url: '/jobOffer/detail/',
         templateUrl: 'app/views/jobOfferDetail.html',
         controller: 'JobOfferDetailController',
         controllerAs: 'vm',
+        params:      {'id': null},
         data: {
           title: 'Job Offer'
         }
       })
       .state('home.jobOfferEdit', {
-        url: '/jobOffer/edit/:id',
+        url: '/jobOffer/edit/',
         templateUrl: 'app/views/JobOfferEdit.html',
         controller: 'JobOfferEditController',
         controllerAs: 'vm',
+        params:      {'id': null},
         data: {
           title: 'Job Offer'
         }
@@ -88,19 +90,21 @@ angular.module('angularMaterialAdmin', ['ngAnimate', 'ngCookies', 'ngTouch',
         }
       })
       .state('home.jobSearchDetail', {
-        url: '/jobSearch/detail/:id',
+        url: '/jobSearch/detail/',
         templateUrl: 'app/views/JobSearchDetail.html',
         controller: 'JobSearchDetailController',
         controllerAs: 'vm',
+        params:      {'id': null},
         data: {
           title: 'Job Search'
         }
       })
       .state('home.jobSearchEdit', {
-        url: '/jobSearch/edit/:id',
+        url: '/jobSearch/edit/',
         templateUrl: 'app/views/JobSearchEdit.html',
         controller: 'JobSearchEditController',
         controllerAs: 'vm',
+        params:      {'id': null},
         data: {
           title: 'Job Search'
         }

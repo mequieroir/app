@@ -2,21 +2,21 @@
 
   angular
        .module('app')
-       .controller('JobSearchEditController', [
-         '$q', '$state','$stateParams', 'ApiConnectionService', 'JobSearchService',
-          JobSearchEditController
+       .controller('jobOfferEditController', [
+         '$q', '$state','$stateParams', 'ApiConnectionService', 'jobOfferService',
+          jobOfferEditController
        ]);
 
-  function JobSearchEditController($q, $state, $stateParams,ApiConnectionService, JobSearchService) {
+  function jobOfferEditController($q, $state, $stateParams,ApiConnectionService, jobOfferService) {
     var vm = this;
     vm.jobOffer = {} 
 
     vm.save = function(argument) {
       var id = $stateParams.jobOfferId
       if (id) {
-        JobSearchService.createJobSearch(vm.jobOffer);
+        jobOfferService.createjobOffer(vm.jobOffer);
       } else {
-        JobSearchService.updateJobSearch(vm.jobOffer)
+        jobOfferService.updatejobOffer(vm.jobOffer)
       }
     }
 
@@ -29,7 +29,7 @@
       if (id) {
         JobOfferService.getJobOffer(id);
       }
-      vm.jobOffer = JobSearchService.getOffer();
+      vm.jobOffer = jobOfferService.getOffer();
     }
 
     init();
