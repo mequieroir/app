@@ -9,7 +9,8 @@
 
   function JobOfferEditController($q, $state, $stateParams,ApiConnectionService, JobOfferService) {
     var vm = this;
-    vm.jobOffer = {} 
+    vm.jobOffer = {}; 
+    vm.users = JobOfferService.getUser();
 
     vm.save = function(argument) {
       var id = $stateParams.jobOfferId
@@ -29,6 +30,7 @@
       if (id) {
         JobOfferService.getJobOffer(id);
       }
+      JobOfferService.getUsers();
       vm.jobOffer = JobOfferService.getOffer();
     }
 

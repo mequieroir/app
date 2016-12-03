@@ -14,9 +14,11 @@
     var srv = {};
     srv.offers = {};
     srv.offer = {};
+    srv.users = {};
 
     srv.getOffers = function() {return srv.offers}
-    srv.getOffer = function() {console.log(1);return srv.offer}
+    srv.getOffer = function() {return srv.offer}
+    srv.getUser = function() {return srv.users}
 
     srv.getJobOffer = function(userId){
       var request = {};
@@ -54,6 +56,7 @@
       var request = {};
       request.method = "POST";
       request.path = "jobOffer/";
+      console.log(jobOffer)
       request.data = jobOffer;
       ApiConnectionService.callApi(request).then(
         function(response) {
@@ -79,7 +82,24 @@
         }
       );
     }
-return srv;
+
+    srv.getUsers = function() {
+      var _path = "user";
+      var _method= "GET"
+      
+      var requestData = {
+        path: _path,
+        method: _method,
+      }
+
+      ApiConnectionService.callApi(requestData)
+        .then(function(response) {
+          console.log(response)
+          angular.copy(response, srv.users) 
+        })
+    }
+
+    return srv;
   }
 
 })();

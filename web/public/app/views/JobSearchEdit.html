@@ -20,6 +20,12 @@
                 <label>Job Type</label>
                 <input ng-model="vm.jobSearch.jobType"></input>
             </md-input-container>
+            <md-input-container flex>
+                <label>Job Type</label>
+                <md-select ng-model="vm.jobSearch.userId" placeholder="{{vm.jobSearch.userId}}" class="md-no-underline">
+                  <md-option ng-repeat="user in vm.users" value="{{user.userId}}">{{user.userName}}</md-option>
+                </md-select>
+            </md-input-container>
         </div>
     </form>
 </md-content>
