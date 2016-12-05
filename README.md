@@ -1,8 +1,5 @@
 # mequiero.ir
-
-[![Codeship Status](
-https://codeship.com/projects/f1393cf0-9d42-0134-1d26-4e318545e956/status?branch=master)](
-https://codeship.com/projects/f1393cf0-9d42-0134-1d26-4e318545e956/status?branch=master)
+[ ![Codeship Status for mequieroir/me-quiero-ir-api](https://app.codeship.com/projects/f1393cf0-9d42-0134-1d26-4e318545e956/status?branch=master)](https://app.codeship.com/projects/188604)
 ### Prerequisites
 
 - git
